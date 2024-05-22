@@ -1,6 +1,10 @@
 package com.raven.datechooser;
 
 public class SelectedDate {
+    
+    public String getFullDay() {
+        return day + "-" + month + "-" +year;
+    }
 
     public int getDay() {
         return day;

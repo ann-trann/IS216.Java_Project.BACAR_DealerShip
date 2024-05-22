@@ -1,7 +1,8 @@
 package com.view.swing;
 
-import com.event.EventAdminMenuSelected;
-import com.model.ModelMenu;
+import CM.controller.event.EventAdminMenuSelected;
+import CM.controller.event.EventSearch;
+import CM.model.ModelMenu;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

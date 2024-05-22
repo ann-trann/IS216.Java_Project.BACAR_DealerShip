@@ -1,7 +1,7 @@
 
 package com.view.swing;
 
-import com.model.ModelMenu;
+import CM.model.ModelMenu;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
