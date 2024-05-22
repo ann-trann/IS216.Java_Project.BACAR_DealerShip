@@ -1,6 +1,6 @@
 package com.view.swing;
 
-import com.view.swing.customscrollbar.ScrollBarCustom;
+import com.view.swing.ScrollBarCustom;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JPanel;
@@ -8,6 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 public class Table extends JTable {
     public Table(){
@@ -33,6 +34,9 @@ public class Table extends JTable {
                 com.setBackground(new Color(251, 238, 215));
                 setBorder(noFocusBorder);
                 com.setForeground(Color.decode("#5E4421"));
+                if (selected) {
+                    com.setForeground(Color.decode("#C3AD8F"));
+                } 
                 return com;                
             }
         });
@@ -41,11 +45,31 @@ public class Table extends JTable {
     
     }
     public void fixTable(JScrollPane scroll){
-        scroll.getViewport().setBackground(Color.decode("#FBEED7"));
+        scroll.getViewport().setOpaque(true);
+        scroll.getViewport().setBackground(new Color(251, 238, 215));
         scroll.setVerticalScrollBar(new ScrollBarCustom());
         JPanel p =new JPanel();
-        p.setBackground(Color.decode("#FBEED7"));
+        p.setBackground(new Color(251, 238, 215));
         scroll.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         scroll.setBorder(new EmptyBorder(5, 10, 5, 10));
+    }
+    
+    public void addRow(Object[] row) {
+        DefaultTableModel model = (DefaultTableModel) getModel();
+        model.addRow(row);
+    }
+
+    public void removeAllRow() {
+        DefaultTableModel dm = (DefaultTableModel) getModel();
+        dm.getDataVector().removeAllElements();
+        revalidate();
+    }
+    
+    public int getFirstCol_RowSelected(int row){
+        row=Math.max(row, 0);
+        int id;
+        DefaultTableModel dm = (DefaultTableModel) getModel();
+        id=(Integer)dm.getValueAt(row, 0);
+        return id;
     }
 }
