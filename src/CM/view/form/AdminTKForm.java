@@ -4,6 +4,7 @@ import CM.controller.service.Service;
 import com.raven.chart.ModelChart;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -19,7 +20,7 @@ public class AdminTKForm extends javax.swing.JPanel {
     
     private void init() throws SQLException{
         int currentMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
-        lbThang.setText("Tháng " + currentMonth);
+        lbThang.setText(service.getCurrentDate());
         double[] arrDT = new double[currentMonth ];
         double[] arrCP = new double[currentMonth ];
         double[] arrLN = new double[currentMonth ];
@@ -31,9 +32,9 @@ public class AdminTKForm extends javax.swing.JPanel {
             arrLN[i] = arrDT[i] - arrCP[i];
         }
         
-        lineChart.addLegend("Doanh thu", Color.yellow, Color.yellow);
-        lineChart.addLegend("Chi phí", Color.red, Color.red);
-        lineChart.addLegend("Lợi nhuận", Color.blue, Color.blue);
+        lineChart.addLegend("Doanh thu", Color.decode("#4F6F52"), Color.decode("#4F6F52"));
+        lineChart.addLegend("Chi phí", Color.decode("#AF8260"), Color.decode("#AF8260"));
+        lineChart.addLegend("Lợi nhuận", Color.decode("#803D3B"), Color.decode("#803D3B"));
         
         for (int i = 0; i < currentMonth; i++){
             double[] values = new double[3];
@@ -43,10 +44,10 @@ public class AdminTKForm extends javax.swing.JPanel {
             lineChart.addData(new ModelChart(listMonth[i], values));
             lineChart.start();
         }
-        
-        CardDT.initCard("Doanh thu", String.valueOf(arrDT[currentMonth - 1]));
-        CardCP.initCard("Chi phí", String.valueOf(arrCP[currentMonth - 1]));
-        CardLN.initCard("Lợi nhuận", String.valueOf(arrLN[currentMonth - 1]));
+        DecimalFormat df = new DecimalFormat("#,###.##");
+        CardDT.initCard("Doanh thu", df.format(arrDT[currentMonth - 1]));
+        CardCP.initCard("Chi phí", df.format(arrCP[currentMonth - 1]));
+        CardLN.initCard("Lợi nhuận", df.format(arrLN[currentMonth - 1]));
     }
 
     @SuppressWarnings("unchecked")
@@ -84,7 +85,9 @@ public class AdminTKForm extends javax.swing.JPanel {
         jLabel1.setText("Thống kê");
 
         lbThang.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        lbThang.setText("THÁNG 5");
+        lbThang.setForeground(new java.awt.Color(94, 68, 33));
+        lbThang.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbThang.setText("Tháng 5");
 
         roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -101,7 +104,7 @@ public class AdminTKForm extends javax.swing.JPanel {
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lineChart, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                .addComponent(lineChart, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -114,49 +117,44 @@ public class AdminTKForm extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(172, 172, 172))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                        .addGap(745, 745, 745))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(583, 583, 583)
+                                .addComponent(lbThang, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
                             .addComponent(roundPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 768, Short.MAX_VALUE)
-                                .addComponent(lbThang, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(CardDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(27, 27, 27)
-                                .addComponent(CardCP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, 0)
+                                .addComponent(CardDT, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
-                                .addComponent(CardLN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(20, 20, 20))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(81, 81, 81))))
+                                .addComponent(CardCP, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(CardLN, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)))
+                        .addGap(10, 10, 10))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CardDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CardCP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(lbThang, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CardLN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(20, 20, 20)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CardLN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CardCP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CardDT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbThang, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(17, 17, 17))
+                .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
 

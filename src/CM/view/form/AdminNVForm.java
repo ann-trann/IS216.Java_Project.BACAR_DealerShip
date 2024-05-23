@@ -8,6 +8,7 @@ import com.view.swing.ScrollBarCustom;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,10 +32,11 @@ public class AdminNVForm extends javax.swing.JPanel {
     }
     
     private void init(){
+        DecimalFormat df= new DecimalFormat("#,###");
         txtSearch.setHint("Tìm kiếm");
         table.fixTable(scroll);
         for (ModelNhanVien data : list){
-            table.addRow(new Object[]{data.getMaNV(), data.getTenNV(), data.getChucVu(), data.getSDT(), data.getNgayVaoLam(), data.getLuong(), data.getTrangThai()});
+            table.addRow(new Object[]{data.getMaNV(), data.getTenNV(), data.getChucVu(), data.getSDT(), data.getNgayVaoLam(), df.format(Long.parseLong(data.getLuong())), data.getTrangThai()});
         }
         scroll.setVerticalScrollBar(new ScrollBarCustom());
         cmdAdd.addActionListener(new ActionListener(){
@@ -191,10 +193,11 @@ public class AdminNVForm extends javax.swing.JPanel {
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         String name = txtSearch.getText().toLowerCase();
+        DecimalFormat df = new DecimalFormat("#,###");
         table.removeAllRow();
         for (ModelNhanVien data : list){
             if (data.getTenNV().toLowerCase().contains(name)){
-                table.addRow(new Object[]{data.getMaNV(), data.getTenNV(), data.getChucVu(), data.getSDT(), data.getNgayVaoLam(), data.getLuong(), data.getTrangThai()});
+                table.addRow(new Object[]{data.getMaNV(), data.getTenNV(), data.getChucVu(), data.getSDT(), data.getNgayVaoLam(), df.format(Long.parseLong(data.getLuong())), data.getTrangThai()});
             }
         }
         txtSearch.setText("");

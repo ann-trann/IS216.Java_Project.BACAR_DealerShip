@@ -47,6 +47,7 @@ public class PasswordField extends JPasswordField {
 
     public PasswordField() {
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        setOpaque(false);
         setBackground(new Color(0, 0, 0, 0));
         setForeground(Color.decode("#FFFFFF"));
         setFont(new java.awt.Font("sansserif", 0, 13));

@@ -41,11 +41,11 @@ public class PanelLogIn extends javax.swing.JPanel {
         this.add(DN);
         txtUser = new TextField();
         txtUser.setHint("Username");
-        txtUser.setPrefixIcon(new ImageIcon(getClass().getResource("/com/view/icon/user.png")));
+        txtUser.setPrefixIcon(new ImageIcon(getClass().getResource("/com/view/icon/Vector.png")));
         this.add(txtUser, "w 65%");
         txtPass = new PasswordField();
         txtPass.setHint("Password");
-        txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/com/view/icon/key.png")));
+        txtPass.setPrefixIcon(new ImageIcon(getClass().getResource("/com/view/icon/Key.png")));
         this.add(txtPass, "w 65%");
         lbReport = new JLabel("");
         lbReport.setFont(new Font("sansserif", 1, 12));
@@ -90,6 +90,7 @@ public class PanelLogIn extends javax.swing.JPanel {
     private void initComponents() {
 
         setBackground(new java.awt.Color(94, 68, 33));
+        setOpaque(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

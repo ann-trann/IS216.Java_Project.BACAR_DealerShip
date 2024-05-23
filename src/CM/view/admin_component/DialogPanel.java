@@ -70,7 +70,7 @@ public class DialogPanel extends javax.swing.JPanel {
     protected void paintComponent(Graphics grphcs) {
         Graphics2D g2 = (Graphics2D) grphcs;
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
-        g2.fillRect(0, 0, getWidth(), getHeight());
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), 25, 25);
         g2.setComposite(AlphaComposite.SrcOver);
         super.paintComponent(grphcs);
     }

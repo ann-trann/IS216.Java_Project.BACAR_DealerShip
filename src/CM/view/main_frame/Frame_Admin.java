@@ -76,16 +76,16 @@ public class Frame_Admin extends javax.swing.JFrame {
                 switch(index){
                     case 0: {
                         try {
-                            main.showForm(new AdminSPForm(main, dialog, model));
+                            main.showForm(new AdminTKForm());
                         } catch (SQLException ex) {
                             Logger.getLogger(Frame_Admin.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                     break;
-
+                    
                     case 1: {
                         try {
-                            main.showForm(new AdminPKForm(main, dialog, model));
+                            main.showForm(new AdminSPForm(main, dialog, model));
                         } catch (SQLException ex) {
                             Logger.getLogger(Frame_Admin.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -94,7 +94,7 @@ public class Frame_Admin extends javax.swing.JFrame {
 
                     case 2: {
                         try {
-                            main.showForm(new AdminLSCForm(main, dialog, model));
+                            main.showForm(new AdminPKForm(main, dialog, model));
                         } catch (SQLException ex) {
                             Logger.getLogger(Frame_Admin.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -103,7 +103,7 @@ public class Frame_Admin extends javax.swing.JFrame {
 
                     case 3: {
                         try {
-                            main.showForm(new AdminHDForm());
+                            main.showForm(new AdminLSCForm(main, dialog, model));
                         } catch (SQLException ex) {
                             Logger.getLogger(Frame_Admin.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -112,7 +112,7 @@ public class Frame_Admin extends javax.swing.JFrame {
 
                     case 4: {
                         try {
-                            main.showForm(new AdminNVForm(main, dialog, model));
+                            main.showForm(new AdminHDForm(main));
                         } catch (SQLException ex) {
                             Logger.getLogger(Frame_Admin.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -121,7 +121,7 @@ public class Frame_Admin extends javax.swing.JFrame {
 
                     case 5: {
                         try {
-                            main.showForm(new AdminTKForm());
+                            main.showForm(new AdminNVForm(main, dialog, model));
                         } catch (SQLException ex) {
                             Logger.getLogger(Frame_Admin.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -141,7 +141,7 @@ public class Frame_Admin extends javax.swing.JFrame {
             }
         });
         
-        main.showForm(new AdminSPForm(main, dialog, model));
+        main.showForm(new AdminTKForm());
         header.init(main, dialog, model);
         
         TimingTarget target;

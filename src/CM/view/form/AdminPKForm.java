@@ -8,6 +8,7 @@ import CM.view.card.AdminInsertUpdatePKCard;
 import CM.view.annouce.RejectPanel;
 import com.view.swing.ScrollBarCustom;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,9 +35,10 @@ public class AdminPKForm extends javax.swing.JPanel {
         table.fixTable(scroll);
         scroll.setVerticalScrollBar(new ScrollBarCustom());
         txtSearch.setHint("Tìm kiếm tên ...");
+        DecimalFormat df = new DecimalFormat("#,###");
         
         for (ModelPhuKien data : list){
-            table.addRow(new Object[]{data.getMaPK(), data.getTenPK(), data.getXuatXu(), data.getSoLuong(), data.getGiaBan()});
+            table.addRow(new Object[]{data.getMaPK(), data.getTenPK(), data.getXuatXu(), data.getSoLuong(), df.format(Long.parseLong(data.getGiaBan()))});
         }
     }
     
@@ -179,9 +181,10 @@ public class AdminPKForm extends javax.swing.JPanel {
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         table.removeAllRow();
+        DecimalFormat df = new DecimalFormat("#,###");
         for (ModelPhuKien data : list){
             if (data.getTenPK().contains(txtSearch.getText())){
-                table.addRow(new Object[]{data.getMaPK(), data.getTenPK(), data.getXuatXu(), data.getSoLuong(), data.getGiaBan()});
+                table.addRow(new Object[]{data.getMaPK(), data.getTenPK(), data.getXuatXu(), data.getSoLuong(), df.format(Long.parseLong(data.getGiaBan()))});
             }
         }
         txtSearch.setText("");
