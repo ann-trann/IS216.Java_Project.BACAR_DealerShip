@@ -1,5 +1,13 @@
 ALTER SESSION SET CURRENT_SCHEMA= MYDATABASE;
 
+BEGIN
+    FOR t IN (SELECT table_name FROM user_tables) LOOP
+        EXECUTE IMMEDIATE 'DROP TABLE ' || t.table_name || ' CASCADE CONSTRAINTS';
+    END LOOP;
+END;
+/
+
+
 /*
 
 DROP TABLE CHITIETHDSC;
@@ -15,6 +23,7 @@ DROP TABLE NHANVIEN;
 
 */
 
+
 -- Nhan vien
 
 CREATE TABLE NhanVien (
@@ -24,7 +33,7 @@ CREATE TABLE NhanVien (
   Luong NUMBER(10),
   ChucVu NVARCHAR2(30),
   NgayVaolam DATE,
-  TaiKhoan VARCHAR2(6),
+  TaiKhoan VARCHAR2(6) UNIQUE,
   MatKhau VARCHAR2(4),
   TrangThai NVARCHAR2(20),
   email NVARCHAR2(30),
@@ -36,6 +45,7 @@ ALTER TABLE NHANVIEN ADD CONSTRAINT fk_nv_nql FOREIGN KEY (ma_nql) REFERENCES Nh
 
 ALTER TABLE NHANVIEN ADD CONSTRAINT NV_CHUCVU_THUOC CHECK (LOWER(CHUCVU) IN ('quan ly', 'kho', 'ban hang', 'sua chua'));
 ALTER TABLE NHANVIEN ADD CONSTRAINT NV_TRANGTHAI_THUOC CHECK (LOWER(TRANGTHAI) IN ('dang lam viec', 'da nghi'));
+
 
 --------------------------------------------------------------------
 
@@ -167,7 +177,8 @@ CREATE TABLE LichSuaChua (
   MaXe NUMBER,
   Ngay DATE,
   Ca NUMBER,
-  MaNV NUMBER  
+  MaNV NUMBER,
+  TrangThai VARCHAR2(20)
 );
 
 ALTER TABLE LICHSUACHUA ADD CONSTRAINT pk_lsc PRIMARY KEY (MaLSC);
@@ -176,6 +187,7 @@ ALTER TABLE LICHSUACHUA ADD CONSTRAINT fk_lsc_kh FOREIGN KEY (MaKH) REFERENCES K
 ALTER TABLE LICHSUACHUA ADD CONSTRAINT fk_lsc_nv FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV);
 
 ALTER TABLE LICHSUACHUA ADD CONSTRAINT LSC_CA_THUOC CHECK(CA IN (1, 2));
+ALTER TABLE LICHSUACHUA ADD CONSTRAINT LSC_TRANGTHAI_THUOC CHECK(TRANGTHAI IN ('Hoan thanh', 'Chua hoan thanh'));
 
 
 --------------------------------------------------------------------
@@ -191,6 +203,8 @@ CREATE TABLE HoaDonSuaChua (
   ThanhTien NUMBER,
   MANV NUMBER
 );
+
+
 
 ALTER TABLE HoaDonSuaChua ADD CONSTRAINT PK_HDSC PRIMARY KEY (MaHD);
 
@@ -218,7 +232,7 @@ ALTER TABLE ChiTietHDSC ADD CONSTRAINT FK_CTHD_PK FOREIGN KEY (MaPK) REFERENCES 
 -------------------------------------------------------------------------
 
 
--- Tao trigger cho bang HOPDONGMUAXE, tu dong tao MAPBH dua tren MAHDMX v� MAXE
+-- Tao trigger cho bang HOPDONGMUAXE, tu dong tao MAPBH dua tren MAHDMX v? MAXE
 
 CREATE OR REPLACE TRIGGER trg_set_MaPBH
 BEFORE INSERT ON HOPDONGMUAXE
@@ -227,6 +241,7 @@ BEGIN
   :NEW.MAPBH := TO_CHAR(:NEW.MAHDMX) || TO_CHAR(:NEW.MAXE);
 END;
 /
+
 
 
 -- Tao trigger cho bang HOPDONGMUAXE, tu dong nhap du lieu vao bang PHIEUBANHANG khi da co MAPBH va Han bao hanh.
@@ -245,6 +260,7 @@ BEGIN
     INSERT INTO PHIEUBAOHANH(MAPBH, THOIHANBAOHANH) VALUES (:NEW.mapbh, to_date(ADD_MONTHS(:NEW.NGAYTAOHOPDONG, tgbh), 'dd-mm-yyyy'));
 END;
 /
+
 
 
 --Tao trigger cho bang HOPDONGMUAXE, truong TRIGIA luon bang GIABAN cua xe.
@@ -282,8 +298,8 @@ INSERT INTO NhanVien (MaNV, TenNV, SDT, Luong, ChucVu, NgayVaolam, TaiKhoan, Mat
 INSERT INTO NhanVien (MaNV, TenNV, SDT, Luong, ChucVu, NgayVaolam, TaiKhoan, MatKhau, TrangThai, email, ma_nql) VALUES (108, 'Nguyen Van I', '0987654328', 5300000, 'Sua chua', TO_DATE('2024-05-21', 'YYYY-MM-DD'), 'acc009', 'pass', 'Dang lam viec', 'example8@email.com', 100);
 INSERT INTO NhanVien (MaNV, TenNV, SDT, Luong, ChucVu, NgayVaolam, TaiKhoan, MatKhau, TrangThai, email, ma_nql) VALUES (109, 'Tran Van K', '0987654329', 4400000, 'Sua chua', TO_DATE('2024-05-22', 'YYYY-MM-DD'), 'acc010', 'pass', 'Dang lam viec', 'example9@email.com', 100);
 INSERT INTO NhanVien (MaNV, TenNV, SDT, Luong, ChucVu, NgayVaolam, TaiKhoan, MatKhau, TrangThai, email, ma_nql) VALUES (110, 'Hoang Van L', '0987643249', 4700000, 'Sua chua', TO_DATE('2024-05-22', 'YYYY-MM-DD'), 'acc011', 'pass', 'Dang lam viec', 'example10@email.com', 100);
-INSERT INTO NhanVien (MaNV, TenNV, SDT, Luong, ChucVu, NgayVaolam, TaiKhoan, MatKhau, TrangThai, email, ma_nql) VALUES (111, 'Tran Van K', '0987654549', 4400000, 'Kho', TO_DATE('2024-05-22', 'YYYY-MM-DD'), 'acc010', 'pass', 'Dang lam viec', 'example9@email.com', 100);
-INSERT INTO NhanVien (MaNV, TenNV, SDT, Luong, ChucVu, NgayVaolam, TaiKhoan, MatKhau, TrangThai, email, ma_nql) VALUES (112, 'Hoang Van L', '0987233249', 4700000, 'Kho', TO_DATE('2024-05-22', 'YYYY-MM-DD'), 'acc011', 'pass', 'Dang lam viec', 'example10@email.com', 100);
+INSERT INTO NhanVien (MaNV, TenNV, SDT, Luong, ChucVu, NgayVaolam, TaiKhoan, MatKhau, TrangThai, email, ma_nql) VALUES (111, 'Tran Van K', '0987657549', 4400000, 'Kho', TO_DATE('2024-05-22', 'YYYY-MM-DD'), 'acc012', 'pass', 'Dang lam viec', 'example9@email.com', 100);
+INSERT INTO NhanVien (MaNV, TenNV, SDT, Luong, ChucVu, NgayVaolam, TaiKhoan, MatKhau, TrangThai, email, ma_nql) VALUES (112, 'Hoang Van L', '0987263249', 4700000, 'Kho', TO_DATE('2024-05-22', 'YYYY-MM-DD'), 'acc013', 'pass', 'Dang lam viec', 'example10@email.com', 100);
 
 -- DELETE FROM NHANVIEN
 -- SELECT * FROM NHANVIEN
@@ -570,7 +586,7 @@ INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaN
 INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (119, 119, 215, TO_DATE('2021-09-08', 'YYYY-MM-DD'), null, null, 103);
 INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (120, 120, 219, TO_DATE('2023-03-30', 'YYYY-MM-DD'), null, null, 102);
 INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (121, 101, 220, TO_DATE('2020-11-13', 'YYYY-MM-DD'), null, null, 104);
-
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (122, 104, 212, TO_DATE('13-11-2020', 'dd-MM-yyyy'), null, null, 104);
 
 
 -- Du lieu bang PhieuBaoHanh
@@ -606,12 +622,12 @@ INSERT INTO PhieuBaoHanh (MaPBH, THOIHANBAOHANH) VALUES (121, TO_DATE('2026-05-0
 
 -- Du lieu bang LichSuaChua
 
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV) VALUES (101, 101, null, TO_DATE('2024-05-12', 'YYYY-MM-DD'), 1, 106);
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV) VALUES (102, 101, null, TO_DATE('2024-05-13', 'YYYY-MM-DD'), 2, 107);
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV) VALUES (103, 109, null, TO_DATE('2024-05-14', 'YYYY-MM-DD'), 1, 108);
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV) VALUES (104, 109, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 2, 109);
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV) VALUES (105, 105, null, TO_DATE('2024-05-14', 'YYYY-MM-DD'), 1, 110);
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV) VALUES (106, 108, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 2, 106);
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (101, 101, null, TO_DATE('2024-05-12', 'YYYY-MM-DD'), 1, 106, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (102, 101, null, TO_DATE('2024-05-13', 'YYYY-MM-DD'), 2, 107, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (103, 109, null, TO_DATE('2024-05-14', 'YYYY-MM-DD'), 1, 108, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (104, 109, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 2, 109, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (105, 105, null, TO_DATE('2024-05-14', 'YYYY-MM-DD'), 1, 110, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (106, 108, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 2, 106, 'Hoan thanh');
 
 
 -- SELECT * FROM LichSuaChua
@@ -695,6 +711,7 @@ CREATE OR REPLACE TRIGGER TG_NV_SET_NVL
 BEFORE INSERT ON NHANVIEN
 FOR EACH ROW
 BEGIN
+    :new.TRANGTHAI := 'Dang lam viec';
     :NEW.NGAYVAOLAM := SYSDATE; 
 END;
 /
@@ -713,28 +730,13 @@ BEGIN
 END;
 /
 
-
 -- Tao trigger cho bang DONGXE, so luong DONGXE phai bang so xe hien tai dang co trong kho, neu la tao dong xe moi thi so luong ban dau phai bang 0.
 
 CREATE OR REPLACE TRIGGER TG_DX_SL
-BEFORE INSERT OR UPDATE OF SOLUONG ON DONGXE
+BEFORE INSERT ON DONGXE
 FOR EACH ROW
-DECLARE 
-    N_SOLUONG NUMBER;
 BEGIN
-    IF UPDATING THEN
-        SELECT COUNT(*) INTO N_SOLUONG
-        FROM XE X
-        WHERE :NEW.MADX = X.MADX
-            AND X.TRANGTHAI = 'Trong kho';
-        
-        IF (N_SOLUONG <> :NEW.SOLUONG) THEN
-            RAISE_APPLICATION_ERROR(-20011, 'So luong khong dung');
-        END IF;
-    END IF;
-    IF INSERTING THEN
-        :NEW.SOLUONG := 0;
-    END IF;
+    :NEW.SOLUONG := 0;
 END;
 /
 
@@ -742,7 +744,7 @@ END;
 -- Tao trigger cho bang XE, khi them 1 xe thi trang thai ban dau cua no phai la trong kho
 
 CREATE OR REPLACE TRIGGER TG_XE_INS_TRANGTHAI
-BEFORE INSERT ON XE
+AFTER INSERT ON XE
 FOR EACH ROW
 BEGIN
     :NEW.TRANGTHAI := 'Trong kho';
@@ -763,7 +765,7 @@ BEGIN
     FROM NHANVIEN
     WHERE MANV = :NEW.MANV;
     
-    IF (V_TRANGTHAI = 'Da nghi' OR (V_CHUCVU <> 'Kho' AND V_CHUCVU <> 'Quan ly')) THEN
+    IF (V_TRANGTHAI = 'Da nghi' OR (V_CHUCVU NOT IN('Kho', 'Quan ly'))) THEN
         RAISE_APPLICATION_ERROR(-20111, 'LOI NHAN VIEN');
     END IF;
 END;
@@ -803,11 +805,19 @@ END;
 CREATE OR REPLACE TRIGGER TG_HDMX_INS_XE_TRANGTHAI
 BEFORE INSERT ON HOPDONGMUAXE
 FOR EACH ROW
+DECLARE 
+    V_TENDONGXE HOPDONGMUAXE.TENDONGXE%TYPE;
 BEGIN
     UPDATE XE
     SET TRANGTHAI = 'Da ban'
     WHERE MAXE = :NEW.MAXE;
     
+    SELECT TENDONGXE INTO V_TENDONGXE
+    FROM DONGXE D 
+        JOIN XE X ON D.MADX = X.MADX
+    WHERE X.MAXE = :NEW.MAXE;    
+    
+    :NEW.TENDONGXE := V_TENDONGXE;
     :NEW.NgayTaoHopDong := SYSDATE;
 END;
 /
@@ -832,13 +842,18 @@ END;
 /
 
 
--- Tao trigger cho bang HOADONSUACHUA, khi tao 1 hop dong thi set ngay tao hoa don la ngay hom do.
+-- Tao trigger cho bang HOADONSUACHUA, khi tao 1 hop dong thi set ngay tao hoa don la ngay hom do, va gia tri ban dau la 0, cap nhat trang thai cho lichsuachua la da hoan thanh
+
 
 CREATE OR REPLACE TRIGGER TG_HDSC_INS_NGAYTX
 BEFORE INSERT ON HOADONSUACHUA
 FOR EACH ROW
 BEGIN
     :NEW.NGAYTRAXE := SYSDATE;
+    :NEW.THANHTIEN := 0;
+    UPDATE LICHSUACHUA
+    SET TRANGTHAI = 'Hoan thanh'
+    WHERE MALSC = :NEW.MALSC;
 END;
 /
 
@@ -852,16 +867,9 @@ DECLARE
     N_THANHTIEN NUMBER;
 BEGIN
   IF UPDATING THEN
-      SELECT SUM(CT.SOLUONG * P.GIABAN) INTO N_THANHTIEN
-      FROM CHITIETHDSC CT
-      JOIN PHUKIEN P ON P.MAPK = CT.MAPK
-      WHERE MAHD = :NEW.MAHD;
-      IF (:NEW.MAPBH IS NULL) THEN 
+      IF (:NEW.MAPBH IS NOT NULL) THEN 
         :NEW.THANHTIEN := 0;
       END IF;
-      IF (N_THANHTIEN <> :NEW.THANHTIEN) THEN
-        RAISE_APPLICATION_ERROR(-20111, 'Thanh tien khong dung');
-      END IF;    
   END IF;
   IF INSERTING THEN
     :NEW.THANHTIEN := 0;
@@ -900,7 +908,7 @@ DECLARE
 BEGIN
   SELECT SOLUONG INTO N_SOLUONG FROM PHUKIEN WHERE MAPK = :NEW.MAPK;
   IF N_SOLUONG < :NEW.SOLUONG THEN
-    RAISE_APPLICATION_ERROR(-20111, 'So luong phu kien kh�ng du');
+    RAISE_APPLICATION_ERROR(-20111, 'So luong phu kien kh?ng du');
   END IF;
 
   UPDATE PHUKIEN
@@ -911,9 +919,24 @@ END;
 
 
 -- Tao trigger cho bang CHITIETHDSC, khi them, xoa, sua 1 phu kien thi cap nhat lai so tien cua hoa don
+CREATE OR REPLACE TRIGGER TG_CTHDSC_INS
+BEFORE INSERT ON CHITIETHDSC
+FOR EACH ROW
+DECLARE 
+    N_GIABAN NUMBER;
+BEGIN
+    SELECT GIABAN INTO N_GIABAN
+    FROM PHUKIEN 
+    WHERE MAPK = :NEW.MAPK;
+    
+    UPDATE HOADONSUACHUA
+    SET THANHTIEN = THANHTIEN + :NEW.SOLUONG * N_GIABAN
+    WHERE MAHD = :NEW.MAHD;
+END;
+/
 
-CREATE OR REPLACE TRIGGER TG_CTHDSC_INS_UPD_DEL
-BEFORE INSERT OR UPDATE OR DELETE OF SOLUONG, MAPK ON CHITIETHDSC
+CREATE OR REPLACE TRIGGER TG_CTHDSC_UPD
+BEFORE UPDATE ON CHITIETHDSC
 FOR EACH ROW
 DECLARE 
     N_GIABANCU NUMBER;
@@ -927,25 +950,27 @@ BEGIN
     FROM PHUKIEN
     WHERE MAPK = :NEW.MAPK;
     
-    IF INSERTING THEN
-        UPDATE HOADONSUACHUA
-        SET THANHTIEN = THANHTIEN + :NEW.SOLUONG * N_GIABANMOI
-        WHERE MAHD = :NEW.MAHD;
-    END IF;
-    IF UPDATING THEN
-        UPDATE HOADONSUACHUA
-        SET THANHTIEN = THANHTIEN + :NEW.SOLUONG * N_GIABANMOI - :OLD.SOLUONG * N_GIABANCU
-        WHERE MAHD = :NEW.MAHD;
-    END IF;
-    IF DELETING THEN
-        UPDATE HOADONSUACHUA
-        SET THANHTIEN = THANHTIEN - :OLD.SOLUONG * N_GIABANCU
-        WHERE MAHD = :OLD.MAHD;
-    END IF;
+    UPDATE HOADONSUACHUA
+    SET THANHTIEN = THANHTIEN + (:NEW.SOLUONG * N_GIABANMOI - :OLD.SOLUONG * N_GIABANCU)
+    WHERE MAHD = :NEW.MAHD;
 END;
 /
 
-
+CREATE OR REPLACE TRIGGER TG_CTHDSC_DEL
+BEFORE DELETE ON CHITIETHDSC
+FOR EACH ROW
+DECLARE 
+    N_GIABAN NUMBER;
+BEGIN
+    SELECT GIABAN INTO N_GIABAN
+    FROM PHUKIEN
+    WHERE MAPK = :OLD.MAPK;
+    
+    UPDATE HOADONSUACHUA
+    SET THANHTIEN = THANHTIEN - (:OLD.SOLUONG * N_GIABAN)
+    WHERE MAHD = :OLD.MAHD;
+END;
+/
 -- Tao trigger cho bang LICHSUACHUA, khi tao moi 1 lich thi nhan vien tao phai la nhan vien sua chua hoac la quan ly.
 
 CREATE OR REPLACE TRIGGER TG_LSC_INS
@@ -962,17 +987,6 @@ BEGIN
     IF (V_TRANGTHAI = 'Da nghi' OR (LOWER(V_CHUCVU) <> 'sua chua' AND V_CHUCVU <> 'Quan ly')) THEN
         RAISE_APPLICATION_ERROR(-20111, 'LOI NHAN VIEN');
     END IF;
-END;
-/
-
-
--- Tao trigger cho bang LICHSUACHUA, khi tao moi 1 lich thi ngay tao lich phai la ngay hien tai.
-
-CREATE OR REPLACE TRIGGER TG_LSC_INS_NGAY
-BEFORE INSERT ON LICHSUACHUA
-FOR EACH ROW
-BEGIN
-    :NEW.NGAY := SYSDATE;
 END;
 /
 
@@ -998,12 +1012,24 @@ COMPOUND TRIGGER
         FROM LICHSUACHUA
         WHERE NGAY = D_NGAY AND CA = N_CA;
         
-        IF (N_SOCA >= 2) THEN
+        IF (N_SOCA > 2) THEN
             RAISE_APPLICATION_ERROR(-20111, 'Ca nay da het luot sua');
         END IF;
     END AFTER STATEMENT;
 END;
 /        
+
+
+-- Tao trigger khi mot lich moi duoc them thi lich do co trang thai chua hoan thanh
+
+CREATE OR REPLACE TRIGGER TG_LSC_TRANGTHAI
+BEFORE INSERT ON LICHSUACHUA
+FOR EACH ROW
+BEGIN
+    :NEW.TRANGTHAI := 'Chua hoan thanh';
+END;
+/
+
 
 -- Tao trigger cho bang KHACHHANG, khi them moi 1 khach hang thi khach hang do loai thuong
 
@@ -1166,7 +1192,7 @@ END;
 -- Tao Function tinh doanh thu trong 1 thang nhat dinh
 
 CREATE OR REPLACE FUNCTION FC_DOANHTHU_THEOTHANG(
-    THANG NUMBER)
+    THANG INT)
 RETURN NUMBER
 IS
     N_DOANHTHUBX NUMBER := 0;
@@ -1175,19 +1201,22 @@ BEGIN
     SELECT SUM(TRIGIA) INTO N_DOANHTHUBX
     FROM HOPDONGMUAXE
     WHERE EXTRACT(MONTH FROM NGAYTAOHOPDONG) = THANG;
+    IF N_DOANHTHUBX IS NULL THEN N_DOANHTHUBX := 0;
+    END IF;
     
     SELECT SUM(THANHTIEN) INTO N_DOANHTHUSC
     FROM HOADONSUACHUA
     WHERE EXTRACT(MONTH FROM NGAYTRAXE) = THANG;
+    IF N_DOANHTHUSC IS NULL THEN N_DOANHTHUSC := 0;
+    END IF;
     
     RETURN N_DOANHTHUSC + N_DOANHTHUBX;
 END;
 /
 
-
 -- Tao Function tinh doanh thu theo 1 nam nhat dinh
 
-CREATE OR REPLACE FUNCTION FC_DOANHTHU_THEOTHANG(
+CREATE OR REPLACE FUNCTION FC_DOANHTHU_THEONAM(
     NAM NUMBER)
 RETURN NUMBER
 IS
@@ -1197,11 +1226,14 @@ BEGIN
     SELECT SUM(TRIGIA) INTO N_DOANHTHUBX
     FROM HOPDONGMUAXE
     WHERE EXTRACT(YEAR FROM NGAYTAOHOPDONG) = NAM;
+    IF N_DOANHTHUBX IS NULL THEN N_DOANHTHUBX := 0;
+    END IF;
     
     SELECT SUM(THANHTIEN) INTO N_DOANHTHUSC
     FROM HOADONSUACHUA
     WHERE EXTRACT(YEAR FROM NGAYTRAXE) = NAM;
-    
+    IF N_DOANHTHUSC IS NULL THEN N_DOANHTHUBX := 0;
+    END IF;
     RETURN N_DOANHTHUSC + N_DOANHTHUBX;
 END;
 /
@@ -1224,7 +1256,7 @@ END;
 
 -- Tao Function tinh chi phi san pham bo ra trong 1 thang
 
-CREATE OR REPLACE FUNCTION FC_CHIPHI_MOTTHANG (THANG NUMBER)
+CREATE OR REPLACE FUNCTION FC_CHIPHI_MOTTHANG (THANG INT)
 RETURN NUMBER
 IS
     N_CHIPHIXE NUMBER;
@@ -1246,6 +1278,21 @@ BEGIN
 END;
 /
 
+-- Tao Function kiem tra ngay hien tai co da het han bao hanh xe chua
+CREATE OR REPLACE FUNCTION FC_KIEMTRA_THOIHAN (MABH VARCHAR2)
+RETURN NUMBER
+IS 
+    NGAYBH PHIEUBAOHANH.THOIHANBAOHANH%TYPE;
+    t NUMBER := 0;
+BEGIN 
+    SELECT THOIHANBAOHANH INTO NGAYBH FROM PHIEUBAOHANH p WHERE p.MAPBH = MABH;
+    
+    IF TO_DATE(NGAYBH, 'dd-MM-yyyy HH24:MI:SS') > TO_DATE(SYSDATE, 'dd-MM-yyyy HH24:MI:SS') THEN 
+        t := 1;
+    END IF;
+    RETURN t;
+END;
+/
 
 -- Tao Function tinh chi phi san pham bo ra theo nam
 
@@ -1260,17 +1307,48 @@ BEGIN
         JOIN XE X ON H.MAXE = X.MAXE
         JOIN DONGXE D ON D.MADX = X.MADX
     WHERE EXTRACT(YEAR FROM NGAYTAOHOPDONG) = NAM;
+    IF (N_CHIPHIXE IS NULL) THEN N_CHIPHIXE := 0;
+    END IF;
     
     SELECT SUM(C.SOLUONG * P.GIANHAP) INTO N_CHIPHIPHUKIEN
     FROM HOADONSUACHUA H
         JOIN CHITIETHDSC C ON C.MAHD = H.MAHD
         JOIN PHUKIEN P ON C.MAPK = P.MAPK
     WHERE EXTRACT(YEAR FROM NGAYTRAXE) = NAM;
+     IF (N_CHIPHIPHUKIEN IS NULL) THEN N_CHIPHIXE := 0;
+    END IF;
     
     RETURN N_CHIPHIXE + N_CHIPHIPHUKIEN;
 END;
 /
 
+-- Tao Function lay ngày hien tai
+
+CREATE OR REPLACE FUNCTION GET_CURRENTDATE
+RETURN VARCHAR2
+IS
+    CURRENTDATE VARCHAR2(10);
+BEGIN
+    CURRENTDATE := TO_CHAR(SYSDATE, 'dd-mm-yyyy');
+    RETURN CURRENTDATE;
+END;
+/
+
+-- Tao Function so sanh 2 ngay voi nhau
+
+CREATE OR REPLACE FUNCTION COMPAIR_2DATE(
+    D1 DATE,
+    D2 DATE) RETURN NUMBER
+IS
+BEGIN
+    IF (TO_DATE(D1, 'dd-mm-yyyy') <= TO_DATE(D2, 'dd-mm-yyyy')) THEN
+        RETURN 1;
+    END IF;
+    RETURN 0;
+END;
+/
+
+-- Tao Fuction
 
 ------------------------------------------------------------------------------------------
 
@@ -1362,6 +1440,5 @@ DROP FUNCTION FC_MAPK_TIEP;
 DROP FUNCTION FC_MAXE_TIEP;
 DROP FUNCTION FC_TONGTIENLUONG_NHANVIEN;
 */
-
 
 

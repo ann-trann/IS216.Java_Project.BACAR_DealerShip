@@ -1,7 +1,7 @@
 package CM.view.admin_component;
 
 import CM.model.ModelNhanVien;
-import CM.view.card.InformationOfNVCard;
+import CM.view.annouce.InformationNV;
 import CM.view.form.MainForm;
 import java.awt.Cursor;
 import java.awt.event.ActionListener;
@@ -97,7 +97,7 @@ public class HeaderAdmin extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonOutLine1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOutLine1ActionPerformed
-        dialog.showForm(new InformationOfNVCard(main, dialog, user));
+        dialog.showForm(new InformationNV(main, dialog, user));
     }//GEN-LAST:event_buttonOutLine1ActionPerformed
 
 

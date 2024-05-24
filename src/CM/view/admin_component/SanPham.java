@@ -3,6 +3,7 @@ package CM.view.admin_component;
 import CM.model.ModelNhanVien;
 import CM.view.card.AdminInsertUpdateSPCard;
 import CM.model.ModelXe;
+import CM.view.annouce.InformationSP;
 import CM.view.form.MainForm;
 import CM.view.annouce.RejectPanel;
 import java.sql.SQLException;
@@ -135,7 +136,7 @@ public class SanPham extends javax.swing.JPanel {
     }//GEN-LAST:event_cmdUpdateActionPerformed
 
     private void cmdCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCheckActionPerformed
-        
+        dialog.showForm(new InformationSP(dialog, model));
     }//GEN-LAST:event_cmdCheckActionPerformed
 
 
