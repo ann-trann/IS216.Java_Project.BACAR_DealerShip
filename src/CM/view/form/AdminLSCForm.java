@@ -6,6 +6,7 @@ import CM.model.ModelLichSuaChua;
 import CM.model.ModelNhanVien;
 import CM.view.admin_component.DialogPanel;
 import CM.view.annouce.AnnoucePanelLSC;
+import CM.view.annouce.ErrorPanelLSC;
 import CM.view.card.AdminInsertUpdateLSCCard;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -238,13 +239,15 @@ public class AdminLSCForm extends javax.swing.JPanel {
                 } catch (SQLException ex) {
                     Logger.getLogger(AdminLSCForm.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            } else{
+                dialog.showForm(new ErrorPanelLSC(dialog));
             }
         }
     }//GEN-LAST:event_cmdUpdActionPerformed
 
     private void cmdTaoHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdTaoHDActionPerformed
 
-        try {
+//        try {
             int maLSC = table.getFirstCol_RowSelected(table.getSelectedRow());
             ModelLichSuaChua data = null;
             for (ModelLichSuaChua model : list){
@@ -256,18 +259,20 @@ public class AdminLSCForm extends javax.swing.JPanel {
 //                dialog.showForm(new AnnoucePanelLSC(dialog));
 //            }
 //            else{
-//                if (data.getTrangThai().equals("Chua hoan thanh")){
-//                    try {
+                if (data.getTrangThai().equals("Chua hoan thanh")){
+                    try {
                         main.showForm(new AdminChoosePKForm(main, dialog, user, data, null));
-//                    } catch (SQLException ex) {
-//                        Logger.getLogger(AdminLSCForm.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AdminLSCForm.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else{
+                    dialog.showForm(new ErrorPanelLSC(dialog));
 //                }
-//            }
+            }
             
-        } catch (SQLException ex) {
-            Logger.getLogger(AdminLSCForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(AdminLSCForm.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_cmdTaoHDActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -312,10 +317,15 @@ public class AdminLSCForm extends javax.swing.JPanel {
                     data = model;
                 }
             }
-            System.out.println(data.getMaLSC());
-            service.deleteLSC(data);
-            table.removeAllRow();
-            initTable();
+            if (data != null){
+                if (data.getTrangThai().equals("Chua hoan thanh")){
+                    service.deleteLSC(data);
+                    table.removeAllRow();
+                    initTable();
+                } else{
+                    dialog.showForm(new ErrorPanelLSC(dialog));
+                }
+            } 
         } catch (SQLException ex) {
             Logger.getLogger(AdminLSCForm.class.getName()).log(Level.SEVERE, null, ex);
         }

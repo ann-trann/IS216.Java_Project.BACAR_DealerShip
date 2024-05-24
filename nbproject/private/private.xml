@@ -11,6 +11,19 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/view/form/AdminLSCForm.java</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/view/admin_component/SanPham.java</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/view/card/AdminInsertUpdateLSCCard.java</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/controller/connection/DatabaseConnection.java</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/view/login_component/PanelLogIn.java</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/view/form/AdminHDForm.java</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/database/Database.sql</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/view/form/AdminCofirmBillForm.java</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/view/annouce/InformationSP.java</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/view/main_frame/Frame_Login.java</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/view/admin_component/HeaderAdmin.java</file>
+            <file>file:/C:/Users/7713b/OneDrive/Máy%20tính/DoAn/CarManagement/src/CM/controller/service/Service.java</file>
+        </group>
     </open-files>
 </project-private>
