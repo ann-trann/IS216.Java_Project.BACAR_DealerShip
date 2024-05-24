@@ -41,7 +41,7 @@ public class AdminChoosePKForm extends javax.swing.JPanel {
     private void init(){
         scroll.getViewport().setOpaque(false);
         scroll.setVerticalScrollBar(new ScrollBarCustom());
-        panel.setLayout(new WrapLayout(WrapLayout.LEFT, 40, 15));
+        panel.setLayout(new WrapLayout(WrapLayout.LEFT, 50, 15));
         
         if (listCTHD == null)
             for (ModelPhuKien model : list){

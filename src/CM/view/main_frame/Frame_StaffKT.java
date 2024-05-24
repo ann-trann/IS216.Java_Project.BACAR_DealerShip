@@ -65,20 +65,37 @@ public class Frame_StaffKT extends javax.swing.JFrame {
         bg.add(header, "h 50!, wrap");
         bg.add(main, "w 100%, h 100%");
         
-        PKform = new AdminPKForm(main, dialog, model);
-        LSCform = new AdminLSCForm(main, dialog, model);
-        HDform = new AdminHDForm();
-        
         menu.addEvent(new EventAdminMenuSelected(){
             @Override
             public void eventSelected(int index) {
                 switch(index){
-                    case 0: main.showForm(PKform);
+                    case 0: {
+                        try {
+                            main.showForm(new AdminPKForm(main, dialog, model));
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Frame_StaffKT.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                     break;
-                    case 1: main.showForm(LSCform);
+
+                    case 1: {
+                        try {
+                            main.showForm(new AdminLSCForm(main, dialog, model));
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Frame_StaffKT.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                     break;
-                    case 2: main.showForm(HDform);
+
+                    case 2: {
+                        try {
+                            main.showForm(new AdminHDForm(main));
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Frame_StaffKT.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                     break;
+
                 }
             }
         });

@@ -34,8 +34,6 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
     
     private void init(){
         lbReport.setText("");
-        scroll.setVerticalScrollBar(new ScrollBarCustom());
-        scroll.setHorizontalScrollBar(new ScrollBarCustom());
         if (model != null){
             lb.setText("Sửa xe");
             txtNameCar.setText(model.getTenXe());
@@ -72,9 +70,6 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
         labele3 = new java.awt.Label();
         txtNameCar = new com.view.swing.TextField();
         txtGiaBan = new com.view.swing.TextField();
-        lable5 = new java.awt.Label();
-        scroll = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         lb = new java.awt.Label();
         labele4 = new java.awt.Label();
         txtGiaNhap = new com.view.swing.TextField();
@@ -112,18 +107,6 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
                 txtGiaBanActionPerformed(evt);
             }
         });
-
-        lable5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lable5.setForeground(new java.awt.Color(183, 150, 107));
-        lable5.setText("Mô tả");
-
-        scroll.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jTextArea1.setBackground(new java.awt.Color(251, 238, 215));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(94, 68, 33));
-        jTextArea1.setRows(5);
-        scroll.setViewportView(jTextArea1);
 
         lb.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         lb.setForeground(new java.awt.Color(183, 150, 107));
@@ -191,14 +174,12 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
                             .addComponent(txtGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lable5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labele5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(cbLoaiXe, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtTGBH, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)))
-                        .addGap(33, 33, 33))))
+                        .addGap(105, 105, 105))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,14 +214,10 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
                     .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbLoaiXe))
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labele4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lable5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(labele4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(txtGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(lbReport)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -267,17 +244,9 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNameCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameCarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameCarActionPerformed
-
     private void cmdCancleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancleActionPerformed
         
     }//GEN-LAST:event_cmdCancleActionPerformed
-
-    private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
-        dialog.setVisible(false);
-    }//GEN-LAST:event_cmdCancelActionPerformed
 
     private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
         if (!check()){
@@ -303,17 +272,25 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
                     model1.setMaXe(model.getMaXe());
                     service.updateDongXe(model1);
                 }
-                    dialog.setVisible(false);
-                    main.showForm(new AdminSPForm(main, dialog, user));                
+                dialog.setVisible(false);
+                main.showForm(new AdminSPForm(main, dialog, user));
             } catch (SQLException ex) {
                 Logger.getLogger(AdminInsertUpdateSPCard.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }   
+        }
     }//GEN-LAST:event_cmdAddActionPerformed
+
+    private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
+        dialog.setVisible(false);
+    }//GEN-LAST:event_cmdCancelActionPerformed
 
     private void txtGiaBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGiaBanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGiaBanActionPerformed
+
+    private void txtNameCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameCarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameCarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -322,16 +299,13 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
     private com.view.swing.Button cmdCancel;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextArea jTextArea1;
     private java.awt.Label label2;
     private java.awt.Label label5;
     private java.awt.Label labele3;
     private java.awt.Label labele4;
     private java.awt.Label labele5;
-    private java.awt.Label lable5;
     private java.awt.Label lb;
     private javax.swing.JLabel lbReport;
-    private javax.swing.JScrollPane scroll;
     private com.view.swing.TextField txtGiaBan;
     private com.view.swing.TextField txtGiaNhap;
     private com.view.swing.TextField txtNameCar;

@@ -47,10 +47,11 @@ public class TextField extends JTextField {
 
     public TextField() {
         setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        setOpaque(false);
         setBackground(new Color(0, 0, 0, 0));
         setForeground(Color.decode("#FFFFFF"));
         setFont(new java.awt.Font("sansserif", 0, 13));
-        setSelectionColor(new Color(75, 175, 152));
+        setSelectionColor(Color.decode("#D3C1A5"));
     }
 
     @Override

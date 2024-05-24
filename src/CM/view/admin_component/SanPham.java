@@ -6,6 +6,7 @@ import CM.model.ModelXe;
 import CM.view.form.MainForm;
 import CM.view.annouce.RejectPanel;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,9 +27,10 @@ public class SanPham extends javax.swing.JPanel {
     }
 
     private void init() {
+        DecimalFormat df = new DecimalFormat("#,###");
         logo.setIcon(model.getXeImg());
         this.lbTenXe.setText(model.getTenXe());
-        this.lbGia.setText(model.getGiaBan());
+        this.lbGia.setText(df.format(Long.parseLong(model.getGiaBan())));
         this.lbSoLuong.setText(model.getSoLuong() +"");
     }
 
@@ -47,7 +49,7 @@ public class SanPham extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(183, 150, 107), 5, true));
 
-        lbTenXe.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbTenXe.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
         lbTenXe.setText("jLabel1");
 
         lbGia.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
@@ -104,7 +106,7 @@ public class SanPham extends javax.swing.JPanel {
                 .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(lbTenXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)

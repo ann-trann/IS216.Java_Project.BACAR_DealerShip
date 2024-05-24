@@ -513,8 +513,8 @@ public class Service {
         p.setInt(1, MaHD);
         ResultSet r = p.executeQuery();
         while (r.next()){
-            int MaPK = r.getInt(2);
-            int SoLuong = r.getInt(3);
+            int MaPK = r.getInt(1);
+            int SoLuong = r.getInt(2);
             
             ModelCTHDSC data = new ModelCTHDSC(MaHD, MaPK, SoLuong);
             list.add(data);

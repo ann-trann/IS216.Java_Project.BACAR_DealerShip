@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package CM.view.admin_component;
 
 import CM.model.ModelPhuKien;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class PhuKien extends javax.swing.JPanel {
 
@@ -23,7 +20,8 @@ public class PhuKien extends javax.swing.JPanel {
     }
     
     private void init(){
-        lbGia.setText(model.getGiaBan());
+        DecimalFormat  df = new DecimalFormat ("#,###");
+        lbGia.setText(df.format(Long.parseLong(model.getGiaBan())));
         lbTenPK.setText(model.getTenPK());
         lbSoLuong.setText("0");
         lbXuatXu.setText(model.getXuatXu());

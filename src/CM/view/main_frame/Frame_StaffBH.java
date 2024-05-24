@@ -63,17 +63,28 @@ public class Frame_StaffBH extends javax.swing.JFrame {
         bg.add(header, "h 50!, wrap");
         bg.add(main, "w 100%, h 100%");
         
-        SPform = new AdminSPForm(main, dialog, model);
-        HDform = new AdminHDForm();
-        
         menu.addEvent(new EventAdminMenuSelected(){
             @Override
             public void eventSelected(int index) {
                 switch(index){
-                    case 0: main.showForm(SPform);
+                    case 0: {
+                        try {
+                            main.showForm(new AdminSPForm(main, dialog, model));
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Frame_StaffBH.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                     break;
-                    case 1: main.showForm(HDform);
+
+                    case 1: {
+                        try {
+                            main.showForm(new AdminHDForm(main));
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Frame_StaffBH.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                     break;
+
                 }
             }
         });

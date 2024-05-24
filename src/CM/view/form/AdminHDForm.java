@@ -15,9 +15,11 @@ public class AdminHDForm extends javax.swing.JPanel {
     private HDForm form;
     private MenuHoaDon menu;
     private MigLayout layout;
+    private MainForm main;
     
-    public AdminHDForm() throws SQLException {
+    public AdminHDForm(MainForm main) throws SQLException {
         initComponents();
+        this.main = main;
         init();
     }
     
@@ -26,7 +28,7 @@ public class AdminHDForm extends javax.swing.JPanel {
         setLayout(layout);
         menu = new MenuHoaDon();
         add(menu, "width 30%, pos 0al 0 n 100%");
-        form = new HDForm();
+        form = new HDForm(main);
         add(form, "width 70%, pos 1al 0 n 100%");
         menu.addEvent(new EventSearchBill(){
             @Override
