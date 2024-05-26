@@ -49,8 +49,8 @@ public class MenuStaffBH extends javax.swing.JPanel {
     
     private void initItem(){
         listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/SP.png")), "    Sản phẩm"));
-        listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/HD.png")), "    Hóa đơn"));
-
+        listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/HDon.png")), "    Hóa đơn"));
+        listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/HDong.png")), "    Hợp đồng"));
     }   
 
 

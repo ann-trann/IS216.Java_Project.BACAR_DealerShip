@@ -20,6 +20,8 @@ public class SuccessPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         cmdExit = new com.view.swing.ButtonOutLine();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N

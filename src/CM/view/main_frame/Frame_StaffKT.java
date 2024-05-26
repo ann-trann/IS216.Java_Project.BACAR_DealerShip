@@ -23,11 +23,6 @@ import org.jdesktop.animation.timing.TimingTargetAdapter;
 
 public class Frame_StaffKT extends javax.swing.JFrame {
 
-    
-    private AdminPKForm PKform;
-    private AdminLSCForm LSCform;
-    private AdminHDForm HDform;
-
     private MenuStaffKT menu;
     private HeaderAdmin header;
     private MigLayout layout;
@@ -39,18 +34,18 @@ public class Frame_StaffKT extends javax.swing.JFrame {
     public Frame_StaffKT() throws SQLException {
         initComponents();
         init();
-    
+
     }
-    
+
     public Frame_StaffKT(ModelNhanVien model) throws SQLException {
         this.model = model;
         setTitle("BACAR Dealership");
         initComponents();
         init();
-    
+
     }
-    
-    private void init() throws SQLException{
+
+    private void init() throws SQLException {
         main = new MainForm();
         dialog = new DialogPanel();
         layout = new MigLayout("fill", "0[]0[100%, fill]0", "0[fill, top]0");
@@ -64,11 +59,11 @@ public class Frame_StaffKT extends javax.swing.JFrame {
         bg.add(menu, "w 0!, spany 2");
         bg.add(header, "h 50!, wrap");
         bg.add(main, "w 100%, h 100%");
-        
-        menu.addEvent(new EventAdminMenuSelected(){
+
+        menu.addEvent(new EventAdminMenuSelected() {
             @Override
             public void eventSelected(int index) {
-                switch(index){
+                switch (index) {
                     case 0: {
                         try {
                             main.showForm(new AdminPKForm(main, dialog, model));
@@ -99,16 +94,16 @@ public class Frame_StaffKT extends javax.swing.JFrame {
                 }
             }
         });
-        
+
         main.showForm(new AdminPKForm(main, dialog, model));
         header.init(main, dialog, model);
-        
+
         TimingTarget target;
-        target = new TimingTargetAdapter(){
+        target = new TimingTargetAdapter() {
             @Override
-            public void timingEvent(float fraction){
+            public void timingEvent(float fraction) {
                 double width;
-                if (menu.isShowMenu()){
+                if (menu.isShowMenu()) {
                     width = 0 + 170 * (1f - fraction);
                 } else {
                     width = 0 + 170 * fraction;
@@ -116,24 +111,24 @@ public class Frame_StaffKT extends javax.swing.JFrame {
                 layout.setComponentConstraints(menu, "w " + width + "!, spany 2");
                 menu.revalidate();
             }
-            
+
             public void end() {
                 menu.setShowMenu(!menu.isShowMenu());
             }
         };
-        
+
         animator = new Animator(500, target);
         animator.setResolution(0);
         animator.setDeceleration(0.5f);
         animator.setAcceleration(0.5f);
-        header.addMenuEvent(new ActionListener(){
-            public void actionPerformed(ActionEvent ae){
-                if (!animator.isRunning()){
+        header.addMenuEvent(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                if (!animator.isRunning()) {
                     animator.start();
                 }
             }
         });
-    
+
     }
 
     @SuppressWarnings("unchecked")
@@ -183,7 +178,7 @@ public class Frame_StaffKT extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public static void main(ModelNhanVien model) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {

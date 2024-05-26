@@ -13,6 +13,7 @@ import CM.view.form.AdminNVForm;
 import CM.view.form.AdminPKForm;
 import CM.view.form.AdminSPForm;
 import CM.view.form.AdminTKForm;
+import CM.view.form.AdminTTHDForm;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,14 +27,6 @@ import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
 public class Frame_Admin extends javax.swing.JFrame {
-    
-    private AdminSPForm SPform;
-    private AdminPKForm PKform;
-    private AdminLSCForm LSCform;
-    private AdminHDForm HDform;
-    private AdminNVForm NVform;
-    private AdminTKForm TKform;
-    private AdminKHForm KHform;
 
     private MenuAdmin menu;
     private HeaderAdmin header;
@@ -134,6 +127,15 @@ public class Frame_Admin extends javax.swing.JFrame {
                     case 6: {
                         try {
                             main.showForm(new AdminKHForm(main));
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Frame_Admin.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    break;
+                    
+                    case 7: {
+                        try {
+                            main.showForm(new AdminTTHDForm());
                         } catch (SQLException ex) {
                             Logger.getLogger(Frame_Admin.class.getName()).log(Level.SEVERE, null, ex);
                         }

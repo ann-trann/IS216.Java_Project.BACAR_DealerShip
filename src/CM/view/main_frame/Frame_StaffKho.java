@@ -28,10 +28,6 @@ import org.jdesktop.animation.timing.TimingTargetAdapter;
 
 public class Frame_StaffKho extends javax.swing.JFrame {
 
-    
-    private AdminSPForm SPform;
-    private AdminPKForm PKform;
-
     private MenuStaffKho menu;
     private HeaderAdmin header;
     private MigLayout layout;

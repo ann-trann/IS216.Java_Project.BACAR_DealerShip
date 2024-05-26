@@ -20,6 +20,8 @@ public class ErrorPanelLSC extends javax.swing.JPanel {
         cmdExit = new com.view.swing.ButtonOutLine();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         roundPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
