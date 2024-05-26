@@ -95,10 +95,10 @@
                               <Component id="txtSDT" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
-                                  <Component id="cmdCancel" min="-2" pref="58" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="cmdCancel" min="-2" pref="58" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                   <Component id="cmdAdd" min="-2" pref="58" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -212,7 +212,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3a" green="70" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ca s&#x1eef;a"/>
+            <Property name="text" type="java.lang.String" value="Ca"/>
           </Properties>
         </Component>
         <Component class="java.awt.Label" name="label5">

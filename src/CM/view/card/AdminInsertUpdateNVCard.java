@@ -32,6 +32,8 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
     }
     
     private void init(){
+        lbReport.setText("");
+        
         cbChucVu.setBackground(new Color(251, 238, 215));
         
         cbTrangThai.setBackground(new Color(251, 238, 215));

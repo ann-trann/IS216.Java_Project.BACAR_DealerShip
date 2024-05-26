@@ -125,7 +125,7 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
 
         label4.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         label4.setForeground(new java.awt.Color(153, 112, 58));
-        label4.setText("Ca sữa");
+        label4.setText("Ca");
 
         label5.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         label5.setForeground(new java.awt.Color(153, 112, 58));
@@ -193,9 +193,9 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
                             .addComponent(txtSDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(179, 179, 179)
-                                .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
                                 .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(150, 150, 150)
