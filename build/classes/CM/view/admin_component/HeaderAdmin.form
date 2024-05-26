@@ -29,7 +29,7 @@
                   <Component id="lbChucvu" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="buttonOutLine1" min="-2" pref="39" max="-2" attributes="0"/>
+              <Component id="cmdUser" min="-2" pref="39" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -40,7 +40,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="cmdMenu" max="32767" attributes="0"/>
-                  <Component id="buttonOutLine1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="cmdUser" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lbTen" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
@@ -72,7 +72,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="com.view.swing.ButtonOutLine" name="buttonOutLine1">
+    <Component class="com.view.swing.ButtonOutLine" name="cmdUser">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="6b" green="96" red="b7" type="rgb"/>
@@ -91,7 +91,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOutLine1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdUserActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbTen">

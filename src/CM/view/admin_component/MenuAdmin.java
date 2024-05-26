@@ -51,7 +51,7 @@ public class MenuAdmin extends javax.swing.JPanel {
         listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/LSC.png")), "    Lịch sửa chữa"));
         listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/HD.png")), "    Hóa đơn"));
         listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/NV.png")), "    Nhân viên"));
-        listMenu1.addItem(new ModelMenu("Khách hàng"));
+        listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/KH.png")), "    Khách hàng"));
     }   
 
     @SuppressWarnings("unchecked")

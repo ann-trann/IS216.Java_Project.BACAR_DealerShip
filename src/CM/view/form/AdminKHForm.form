@@ -25,7 +25,7 @@
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="PK" pref="118" max="32767" attributes="0"/>
+                      <Component id="lbKH" pref="118" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
                       <Component id="txtSearch" min="-2" pref="194" max="-2" attributes="0"/>
                   </Group>
@@ -43,7 +43,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="PK" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbKH" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtSearch" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
@@ -54,7 +54,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="PK">
+    <Component class="javax.swing.JLabel" name="lbKH">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="20" style="1"/>
@@ -68,7 +68,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PKMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbKHMouseClicked"/>
       </Events>
     </Component>
     <Component class="com.view.swing.TextField" name="txtSearch">

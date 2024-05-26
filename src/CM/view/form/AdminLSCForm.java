@@ -58,7 +58,7 @@ public class AdminLSCForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lbLSC = new javax.swing.JLabel();
         txtSearch = new com.view.swing.TextField();
         cmdTaoHD = new com.view.swing.Button();
         cmdAdd = new com.view.swing.Button();
@@ -71,13 +71,13 @@ public class AdminLSCForm extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(251, 238, 215));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(94, 68, 33));
-        jLabel1.setText("Lịch sửa chữa");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbLSC.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        lbLSC.setForeground(new java.awt.Color(94, 68, 33));
+        lbLSC.setText("Lịch sửa chữa");
+        lbLSC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbLSC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lbLSCMouseClicked(evt);
             }
         });
 
@@ -184,7 +184,7 @@ public class AdminLSCForm extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cmdTaoHD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lbLSC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -201,7 +201,7 @@ public class AdminLSCForm extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(lbLSC)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -297,7 +297,7 @@ public class AdminLSCForm extends javax.swing.JPanel {
         txtSearch.setText("");
     }//GEN-LAST:event_txtSearchActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void lbLSCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLSCMouseClicked
         table.removeAllRow();
         try {
             initTable();
@@ -306,7 +306,7 @@ public class AdminLSCForm extends javax.swing.JPanel {
         }
         init();
         
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_lbLSCMouseClicked
 
     private void cmDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmDelActionPerformed
         try {
@@ -337,7 +337,7 @@ public class AdminLSCForm extends javax.swing.JPanel {
     private com.view.swing.Button cmdAdd;
     private com.view.swing.Button cmdTaoHD;
     private com.view.swing.Button cmdUpd;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lbLSC;
     private com.view.swing.RoundPanel roundPanel1;
     private com.view.swing.RoundPanel roundPanel2;
     private javax.swing.JScrollPane scroll;

@@ -46,7 +46,7 @@ public class AdminPKForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PK = new javax.swing.JLabel();
+        lbPK = new javax.swing.JLabel();
         txtSearch = new com.view.swing.TextField();
         cmdAdd = new com.view.swing.Button();
         cmdUpd = new com.view.swing.Button();
@@ -57,13 +57,13 @@ public class AdminPKForm extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(251, 238, 215));
 
-        PK.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        PK.setForeground(new java.awt.Color(94, 68, 33));
-        PK.setText("Phụ kiện");
-        PK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PK.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbPK.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        lbPK.setForeground(new java.awt.Color(94, 68, 33));
+        lbPK.setText("Phụ kiện");
+        lbPK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbPK.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PKMouseClicked(evt);
+                lbPKMouseClicked(evt);
             }
         });
 
@@ -155,7 +155,7 @@ public class AdminPKForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PK)
+                        .addComponent(lbPK)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -170,7 +170,7 @@ public class AdminPKForm extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PK)
+                    .addComponent(lbPK)
                     .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmdUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -200,11 +200,11 @@ public class AdminPKForm extends javax.swing.JPanel {
         } else dialog.showForm(new RejectPanel(dialog));
     }//GEN-LAST:event_cmdAddActionPerformed
 
-    private void PKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PKMouseClicked
+    private void lbPKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPKMouseClicked
         table.removeAllRow();
         txtSearch.setText("");
         init();
-    }//GEN-LAST:event_PKMouseClicked
+    }//GEN-LAST:event_lbPKMouseClicked
 
     private void cmdUpdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdUpdActionPerformed
         if (user.getChucVu().equals("Quan ly")|| user.getChucVu().equals("Kho")){
@@ -228,9 +228,9 @@ public class AdminPKForm extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel PK;
     private com.view.swing.Button cmdAdd;
     private com.view.swing.Button cmdUpd;
+    private javax.swing.JLabel lbPK;
     private com.view.swing.RoundPanel roundPanel1;
     private com.view.swing.RoundPanel roundPanel2;
     private javax.swing.JScrollPane scroll;

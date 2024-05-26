@@ -3,11 +3,12 @@ package CM.view.admin_component;
 
 import CM.controller.event.EventAdminMenuSelected;
 import CM.controller.event.EventSearch;
-import CM.view.card.AdminInsertUpdateSPCard;
+import CM.view.card.AdminUpdateSPCard;
 import CM.model.ModelMenu;
 import CM.model.ModelNhanVien;
 import CM.view.form.MainForm;
 import CM.view.annouce.RejectPanel;
+import CM.view.card.AdminInsertSPCard;
 import CM.view.form.AdminChooseSPForm;
 import com.view.swing.Button;
 import com.view.swing.TextField;
@@ -52,7 +53,7 @@ public class MenuSanPham extends javax.swing.JPanel {
                 try {
                     System.out.print(user.getChucVu());
                     if (user.getChucVu().equals("Quan ly")|| user.getChucVu().equals("Kho"))
-                        dialog.showForm(new AdminInsertUpdateSPCard(null, dialog, main, user));
+                        dialog.showForm(new AdminInsertSPCard(main, dialog, user));
                     else dialog.showForm(new RejectPanel(dialog));
                 } catch (SQLException ex) {
                     Logger.getLogger(MenuSanPham.class.getName()).log(Level.SEVERE, null, ex);

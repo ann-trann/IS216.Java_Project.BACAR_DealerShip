@@ -63,12 +63,15 @@ public class Frame_Admin extends javax.swing.JFrame {
         menu = new MenuAdmin();
         header = new HeaderAdmin();
         main.setLayout(new BorderLayout());
+        
         bg.setLayout(layout);
         bg.setLayer(dialog, JLayeredPane.POPUP_LAYER);
         bg.add(dialog, "pos 0 0 100% 100%");
         bg.add(menu, "w 0!, spany 2");
         bg.add(header, "h 50!, wrap");
         bg.add(main, "w 100%, h 100%");
+        
+        header.init(main, dialog, model);
         
         menu.addEvent(new EventAdminMenuSelected(){
             @Override
@@ -142,7 +145,6 @@ public class Frame_Admin extends javax.swing.JFrame {
         });
         
         main.showForm(new AdminTKForm());
-        header.init(main, dialog, model);
         
         TimingTarget target;
         target = new TimingTargetAdapter(){

@@ -95,11 +95,10 @@ public class Service {
             p.setInt(6, data.getThoiGianBH());
             p.execute();
         }
+        System.out.println(data.getMaX() + " " + data.getMaXe() +  " " + data.getMaNV());
         sql = "Insert into Xe(MaXe, MaDX, MaNV) VALUES (?, ?, ?)";
-        int maXe = this.getMaXe_Next();
-        System.out.println(maXe + " " + data.getMaXe() + " " + data.getMaNV());
         p = con.prepareStatement(sql);
-        p.setInt(1, maXe);
+        p.setInt(1, data.getMaX());
         p.setInt(2, data.getMaXe());
         p.setInt(3, data.getMaNV());
         p.execute();
@@ -811,5 +810,17 @@ public class Service {
         dt += c.getLong(1);
         c.close();
         return dt;
+    }
+    
+    // Lấy tất cả Mã xe có trong kho (#MaDX)
+    public ArrayList<Integer> getListMaXe() throws SQLException{
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        String sql = "SELECT MAXE FROM XE";
+        PreparedStatement p = con.prepareStatement(sql);
+        ResultSet r = p.executeQuery();
+        while (r.next()){
+            list.add(r.getInt(1));
+        }
+        return list;
     }
 }
