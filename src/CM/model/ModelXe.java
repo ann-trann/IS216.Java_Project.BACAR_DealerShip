@@ -11,6 +11,14 @@ public class ModelXe {
         this.xeImg = xeImg;
     }
 
+    public int getMaX() {
+        return maX;
+    }
+
+    public void setMaX(int maX) {
+        this.maX = maX;
+    }
+    
     public ModelXe(int maXe, String tenXe, String loaiXe, String giaNhap, String giaBan, int soLuong, int thoiGianBH) {
         this.maXe = maXe;
         this.tenXe = tenXe;
@@ -19,6 +27,16 @@ public class ModelXe {
         this.giaNhap = giaNhap;
         this.giaBan = giaBan;
         this.thoiGianBH = thoiGianBH;
+    }
+    
+    public ModelXe(String tenXe, String loaiXe, String giaNhap, String giaBan, int thoiGianBH, int maNV, int maX) {
+        this.maX = maX;
+        this.tenXe = tenXe;
+        this.loaiXe = loaiXe;
+        this.giaNhap = giaNhap;
+        this.giaBan = giaBan;
+        this.thoiGianBH = thoiGianBH;
+        this.maNV = maNV;
     }
     
     public ModelXe(String tenXe, String loaiXe, String giaNhap, String giaBan, int thoiGianBH, int maNV) {
@@ -111,6 +129,7 @@ public class ModelXe {
     }
 
     private int maXe;
+    private int maX;
     private String tenXe;
     private String loaiXe;
     private int soLuong;

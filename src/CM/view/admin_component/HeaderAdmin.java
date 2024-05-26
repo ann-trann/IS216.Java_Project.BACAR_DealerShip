@@ -34,7 +34,7 @@ public class HeaderAdmin extends javax.swing.JPanel {
     private void initComponents() {
 
         cmdMenu = new com.view.swing.Button();
-        buttonOutLine1 = new com.view.swing.ButtonOutLine();
+        cmdUser = new com.view.swing.ButtonOutLine();
         lbTen = new javax.swing.JLabel();
         lbChucvu = new javax.swing.JLabel();
 
@@ -46,14 +46,14 @@ public class HeaderAdmin extends javax.swing.JPanel {
         cmdMenu.setMinimumSize(new java.awt.Dimension(30, 30));
         cmdMenu.setPreferredSize(new java.awt.Dimension(30, 30));
 
-        buttonOutLine1.setBackground(new java.awt.Color(183, 150, 107));
-        buttonOutLine1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/view/icon/user.png"))); // NOI18N
-        buttonOutLine1.setMaximumSize(new java.awt.Dimension(30, 30));
-        buttonOutLine1.setMinimumSize(new java.awt.Dimension(30, 30));
-        buttonOutLine1.setPreferredSize(new java.awt.Dimension(30, 30));
-        buttonOutLine1.addActionListener(new java.awt.event.ActionListener() {
+        cmdUser.setBackground(new java.awt.Color(183, 150, 107));
+        cmdUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/view/icon/user.png"))); // NOI18N
+        cmdUser.setMaximumSize(new java.awt.Dimension(30, 30));
+        cmdUser.setMinimumSize(new java.awt.Dimension(30, 30));
+        cmdUser.setPreferredSize(new java.awt.Dimension(30, 30));
+        cmdUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonOutLine1ActionPerformed(evt);
+                cmdUserActionPerformed(evt);
             }
         });
 
@@ -78,7 +78,7 @@ public class HeaderAdmin extends javax.swing.JPanel {
                     .addComponent(lbTen, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                     .addComponent(lbChucvu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10)
-                .addComponent(buttonOutLine1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
@@ -87,7 +87,7 @@ public class HeaderAdmin extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cmdMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonOutLine1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(lbTen)
                         .addGap(4, 4, 4)
@@ -96,14 +96,14 @@ public class HeaderAdmin extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonOutLine1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOutLine1ActionPerformed
+    private void cmdUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdUserActionPerformed
         dialog.showForm(new InformationNV(main, dialog, user));
-    }//GEN-LAST:event_buttonOutLine1ActionPerformed
+    }//GEN-LAST:event_cmdUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.view.swing.ButtonOutLine buttonOutLine1;
     private com.view.swing.Button cmdMenu;
+    private com.view.swing.ButtonOutLine cmdUser;
     private javax.swing.JLabel lbChucvu;
     private javax.swing.JLabel lbTen;
     // End of variables declaration//GEN-END:variables

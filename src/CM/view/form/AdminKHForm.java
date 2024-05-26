@@ -30,7 +30,7 @@ public class AdminKHForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PK = new javax.swing.JLabel();
+        lbKH = new javax.swing.JLabel();
         txtSearch = new com.view.swing.TextField();
         roundPanel1 = new com.view.swing.RoundPanel();
         roundPanel2 = new com.view.swing.RoundPanel();
@@ -39,13 +39,13 @@ public class AdminKHForm extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(251, 238, 215));
 
-        PK.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        PK.setForeground(new java.awt.Color(94, 68, 33));
-        PK.setText("Khách hàng");
-        PK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        PK.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbKH.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        lbKH.setForeground(new java.awt.Color(94, 68, 33));
+        lbKH.setText("Khách hàng");
+        lbKH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbKH.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PKMouseClicked(evt);
+                lbKHMouseClicked(evt);
             }
         });
 
@@ -123,7 +123,7 @@ public class AdminKHForm extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PK, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                        .addComponent(lbKH, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                         .addGap(284, 284, 284)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -136,7 +136,7 @@ public class AdminKHForm extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PK)
+                    .addComponent(lbKH)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -155,15 +155,15 @@ public class AdminKHForm extends javax.swing.JPanel {
         txtSearch.setText("");
     }//GEN-LAST:event_txtSearchActionPerformed
 
-    private void PKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PKMouseClicked
+    private void lbKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbKHMouseClicked
         table.removeAllRow();
         init();
         txtSearch.setText("");
-    }//GEN-LAST:event_PKMouseClicked
+    }//GEN-LAST:event_lbKHMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel PK;
+    private javax.swing.JLabel lbKH;
     private com.view.swing.RoundPanel roundPanel1;
     private com.view.swing.RoundPanel roundPanel2;
     private javax.swing.JScrollPane scroll;

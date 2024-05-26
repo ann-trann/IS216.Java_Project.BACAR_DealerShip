@@ -744,7 +744,7 @@ END;
 -- Tao trigger cho bang XE, khi them 1 xe thi trang thai ban dau cua no phai la trong kho
 
 CREATE OR REPLACE TRIGGER TG_XE_INS_TRANGTHAI
-AFTER INSERT ON XE
+BEFORE INSERT ON XE
 FOR EACH ROW
 BEGIN
     :NEW.TRANGTHAI := 'Trong kho';

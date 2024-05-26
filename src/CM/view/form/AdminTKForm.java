@@ -5,7 +5,6 @@ import com.raven.chart.ModelChart;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class AdminTKForm extends javax.swing.JPanel {
@@ -57,11 +56,11 @@ public class AdminTKForm extends javax.swing.JPanel {
         CardLN = new CM.view.card.TKCard();
         CardDT = new CM.view.card.TKCard();
         CardCP = new CM.view.card.TKCard();
-        jLabel1 = new javax.swing.JLabel();
+        cmdTK = new javax.swing.JLabel();
         lbThang = new javax.swing.JLabel();
         roundPanel1 = new com.view.swing.RoundPanel();
         lineChart = new com.raven.chart.LineChart();
-        jLabel3 = new javax.swing.JLabel();
+        cmdBieuDo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(251, 238, 215));
 
@@ -80,9 +79,9 @@ public class AdminTKForm extends javax.swing.JPanel {
         CardCP.setMaximumSize(new java.awt.Dimension(222, 134));
         CardCP.setMinimumSize(new java.awt.Dimension(222, 134));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(94, 68, 33));
-        jLabel1.setText("Thống kê");
+        cmdTK.setFont(new java.awt.Font("SansSerif", 1, 22)); // NOI18N
+        cmdTK.setForeground(new java.awt.Color(94, 68, 33));
+        cmdTK.setText("Thống kê");
 
         lbThang.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbThang.setForeground(new java.awt.Color(94, 68, 33));
@@ -108,9 +107,9 @@ public class AdminTKForm extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(94, 68, 33));
-        jLabel3.setText("Biểu đồ tăng trưởng ");
+        cmdBieuDo.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        cmdBieuDo.setForeground(new java.awt.Color(94, 68, 33));
+        cmdBieuDo.setText("Biểu đồ tăng trưởng ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -120,17 +119,16 @@ public class AdminTKForm extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                        .addComponent(cmdTK, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                         .addGap(745, 745, 745))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(cmdBieuDo)
                                 .addGap(583, 583, 583)
                                 .addComponent(lbThang, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
                             .addComponent(roundPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, 0)
                                 .addComponent(CardDT, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(CardCP, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
@@ -142,7 +140,7 @@ public class AdminTKForm extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addComponent(cmdTK, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CardLN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -150,7 +148,7 @@ public class AdminTKForm extends javax.swing.JPanel {
                     .addComponent(CardDT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdBieuDo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbThang, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                 .addGap(24, 24, 24)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -163,8 +161,8 @@ public class AdminTKForm extends javax.swing.JPanel {
     private CM.view.card.TKCard CardCP;
     private CM.view.card.TKCard CardDT;
     private CM.view.card.TKCard CardLN;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel cmdBieuDo;
+    private javax.swing.JLabel cmdTK;
     private javax.swing.JLabel lbThang;
     private com.raven.chart.LineChart lineChart;
     private com.view.swing.RoundPanel roundPanel1;

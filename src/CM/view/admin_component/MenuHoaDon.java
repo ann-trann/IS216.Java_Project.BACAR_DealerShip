@@ -66,7 +66,7 @@ public class MenuHoaDon extends javax.swing.JPanel {
         dateEnd = new com.raven.datechooser.DateChooser();
         lbReport = new javax.swing.JLabel();
         panel = new com.view.swing.RoundPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lbThoiGian = new javax.swing.JLabel();
         txtDateStart = new com.view.swing.TextField();
         txtDateEnd = new com.view.swing.TextField();
         cmdSearch = new com.view.swing.Button();
@@ -87,8 +87,8 @@ public class MenuHoaDon extends javax.swing.JPanel {
 
         panel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel1.setText("Thời gian");
+        lbThoiGian.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbThoiGian.setText("Thời gian");
 
         txtDateStart.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -118,7 +118,7 @@ public class MenuHoaDon extends javax.swing.JPanel {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDateStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lbThoiGian)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(txtDateEnd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelLayout.createSequentialGroup()
@@ -131,7 +131,7 @@ public class MenuHoaDon extends javax.swing.JPanel {
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel1)
+                .addComponent(lbThoiGian)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtDateStart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -227,9 +227,9 @@ public class MenuHoaDon extends javax.swing.JPanel {
     private com.view.swing.Button cmdSearch;
     private com.raven.datechooser.DateChooser dateEnd;
     private com.raven.datechooser.DateChooser dateStart;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbHD;
     private javax.swing.JLabel lbReport;
+    private javax.swing.JLabel lbThoiGian;
     private com.view.swing.RoundPanel panel;
     private com.view.swing.TextField txtDateEnd;
     private com.view.swing.TextField txtDateStart;

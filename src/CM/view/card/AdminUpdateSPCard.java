@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
+public class AdminUpdateSPCard extends javax.swing.JPanel {
     
     private ModelXe model;
     private MainForm main;
@@ -21,7 +21,7 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
     private Service service;
     private ModelNhanVien user;
     
-    public AdminInsertUpdateSPCard(ModelXe model, DialogPanel dialog, MainForm main, ModelNhanVien user) throws SQLException {
+    public AdminUpdateSPCard(ModelXe model, DialogPanel dialog, MainForm main, ModelNhanVien user) throws SQLException {
         service = new Service();
         this.user = user;
         this.dialog = dialog;
@@ -34,18 +34,15 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
     
     private void init(){
         lbReport.setText("");
-        if (model != null){
-            lb.setText("Sửa xe");
-            txtNameCar.setText(model.getTenXe());
-            txtGiaBan.setText(model.getGiaBan());
-            cmdAdd.setText("Sửa");
-            txtGiaNhap.setText(model.getGiaNhap());
-            txtTGBH.setText(model.getThoiGianBH() + "");
-        }
+        txtTenXe.setText(model.getTenXe());
+        txtGiaBan.setText(model.getGiaBan());
+        txtGiaNhap.setText(model.getGiaNhap());
+        txtTGBH.setText(model.getThoiGianBH() + "");
+        
     }
     
     private boolean check(){
-        if (txtNameCar.getText().trim().isEmpty()) return false;
+        if (txtTenXe.getText().trim().isEmpty()) return false;
         if (txtGiaBan.getText().trim().isEmpty()) return false;
         if (txtGiaNhap.getText().trim().isEmpty()) return false;
         if (txtTGBH.getText().trim().isEmpty()) return false;
@@ -66,19 +63,19 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
 
         jFileChooser1 = new javax.swing.JFileChooser();
         jPanel1 = new javax.swing.JPanel();
-        label2 = new java.awt.Label();
-        labele3 = new java.awt.Label();
-        txtNameCar = new com.view.swing.TextField();
+        lbTenXe = new java.awt.Label();
+        lbGiaBan = new java.awt.Label();
+        txtTenXe = new com.view.swing.TextField();
         txtGiaBan = new com.view.swing.TextField();
-        lb = new java.awt.Label();
-        labele4 = new java.awt.Label();
+        lbUpdate = new java.awt.Label();
+        lbGiaNhap = new java.awt.Label();
         txtGiaNhap = new com.view.swing.TextField();
-        labele5 = new java.awt.Label();
+        lbTGBH = new java.awt.Label();
         txtTGBH = new com.view.swing.TextField();
-        label5 = new java.awt.Label();
+        lbLoaiXe = new java.awt.Label();
         cbLoaiXe = new Combobox();
         cmdCancel = new com.view.swing.Button();
-        cmdAdd = new com.view.swing.Button();
+        cmdUpd = new com.view.swing.Button();
         lbReport = new javax.swing.JLabel();
 
         jFileChooser1.setName(""); // NOI18N
@@ -88,17 +85,17 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(251, 238, 215));
 
-        label2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        label2.setForeground(new java.awt.Color(183, 150, 107));
-        label2.setText("Tên xe");
+        lbTenXe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbTenXe.setForeground(new java.awt.Color(183, 150, 107));
+        lbTenXe.setText("Tên xe");
 
-        labele3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        labele3.setForeground(new java.awt.Color(183, 150, 107));
-        labele3.setText("Giá bán");
+        lbGiaBan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbGiaBan.setForeground(new java.awt.Color(183, 150, 107));
+        lbGiaBan.setText("Giá bán");
 
-        txtNameCar.addActionListener(new java.awt.event.ActionListener() {
+        txtTenXe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameCarActionPerformed(evt);
+                txtTenXeActionPerformed(evt);
             }
         });
 
@@ -108,21 +105,21 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
             }
         });
 
-        lb.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        lb.setForeground(new java.awt.Color(183, 150, 107));
-        lb.setText("Thêm xe");
+        lbUpdate.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lbUpdate.setForeground(new java.awt.Color(183, 150, 107));
+        lbUpdate.setText("Sửa thông tin xe");
 
-        labele4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        labele4.setForeground(new java.awt.Color(183, 150, 107));
-        labele4.setText("Giá nhập");
+        lbGiaNhap.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbGiaNhap.setForeground(new java.awt.Color(183, 150, 107));
+        lbGiaNhap.setText("Giá nhập");
 
-        labele5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        labele5.setForeground(new java.awt.Color(183, 150, 107));
-        labele5.setText("Thời gian bảo hành");
+        lbTGBH.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbTGBH.setForeground(new java.awt.Color(183, 150, 107));
+        lbTGBH.setText("Thời gian bảo hành");
 
-        label5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        label5.setForeground(new java.awt.Color(183, 150, 107));
-        label5.setText("Loại xe");
+        lbLoaiXe.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbLoaiXe.setForeground(new java.awt.Color(183, 150, 107));
+        lbLoaiXe.setText("Loại xe");
 
         cbLoaiXe.setBackground(new java.awt.Color(251, 238, 215));
         cbLoaiXe.setForeground(new java.awt.Color(195, 173, 143));
@@ -140,12 +137,12 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
             }
         });
 
-        cmdAdd.setForeground(new java.awt.Color(255, 255, 255));
-        cmdAdd.setText("Thêm");
-        cmdAdd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        cmdAdd.addActionListener(new java.awt.event.ActionListener() {
+        cmdUpd.setForeground(new java.awt.Color(255, 255, 255));
+        cmdUpd.setText("Sửa");
+        cmdUpd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cmdUpd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdAddActionPerformed(evt);
+                cmdUpdActionPerformed(evt);
             }
         });
 
@@ -161,21 +158,21 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(labele3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtNameCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbTenXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTenXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtGiaBan, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
-                            .addComponent(labele4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labele5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbTGBH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbLoaiXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(cbLoaiXe, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtTGBH, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)))
@@ -186,7 +183,7 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmdUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lbReport)
@@ -196,33 +193,33 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labele5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbTenXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTGBH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNameCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTenXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTGBH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labele3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbLoaiXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbLoaiXe))
                 .addGap(20, 20, 20)
-                .addComponent(labele4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(lbReport)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmdUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
         );
 
@@ -248,37 +245,27 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
         
     }//GEN-LAST:event_cmdCancleActionPerformed
 
-    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
+    private void cmdUpdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdUpdActionPerformed
         if (!check()){
             lbReport.setText("Lỗi dữ liệu");
         } else{
+                ModelXe model1 = new ModelXe(txtTenXe.getText(), (String) cbLoaiXe.getSelectedItem(), txtGiaNhap.getText(), txtGiaBan.getText(), Integer.valueOf(txtTGBH.getText()), user.getMaNV());
+                model1.setMaXe(model.getMaXe());
             try {
-                if (model == null){
-                    ModelXe model1 = null;
-                    for (ModelXe data: service.getListXe()){
-                        if (data.getTenXe().toLowerCase().equals(txtNameCar.getText().toLowerCase())){
-                            model1 = data;
-                        }
-                    }
-
-                    if (model1 == null){
-                        model1 = new ModelXe(txtNameCar.getText(), (String) cbLoaiXe.getSelectedItem(), txtGiaNhap.getText(), txtGiaBan.getText(), Integer.valueOf(txtTGBH.getText()), user.getMaNV());
-                        model1.setMaXe(0);
-                    }
-                    model1.setMaNV(user.getMaNV());
-                    service.insertXe(model1);
-                } else {
-                    ModelXe model1 = new ModelXe(txtNameCar.getText(), (String) cbLoaiXe.getSelectedItem(), txtGiaNhap.getText(), txtGiaBan.getText(), Integer.valueOf(txtTGBH.getText()), user.getMaNV());
-                    model1.setMaXe(model.getMaXe());
-                    service.updateDongXe(model1);
-                }
-                dialog.setVisible(false);
-                main.showForm(new AdminSPForm(main, dialog, user));
+                service.updateDongXe(model1);
             } catch (SQLException ex) {
-                Logger.getLogger(AdminInsertUpdateSPCard.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AdminUpdateSPCard.class.getName()).log(Level.SEVERE, null, ex);
             }
+            }
+            dialog.setVisible(false);
+        try {
+            main.showForm(new AdminSPForm(main, dialog, user));
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminUpdateSPCard.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_cmdAddActionPerformed
+        
+        
+    }//GEN-LAST:event_cmdUpdActionPerformed
 
     private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
         dialog.setVisible(false);
@@ -288,27 +275,27 @@ public class AdminInsertUpdateSPCard extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGiaBanActionPerformed
 
-    private void txtNameCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameCarActionPerformed
+    private void txtTenXeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenXeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameCarActionPerformed
+    }//GEN-LAST:event_txtTenXeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbLoaiXe;
-    private com.view.swing.Button cmdAdd;
     private com.view.swing.Button cmdCancel;
+    private com.view.swing.Button cmdUpd;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JPanel jPanel1;
-    private java.awt.Label label2;
-    private java.awt.Label label5;
-    private java.awt.Label labele3;
-    private java.awt.Label labele4;
-    private java.awt.Label labele5;
-    private java.awt.Label lb;
+    private java.awt.Label lbGiaBan;
+    private java.awt.Label lbGiaNhap;
+    private java.awt.Label lbLoaiXe;
     private javax.swing.JLabel lbReport;
+    private java.awt.Label lbTGBH;
+    private java.awt.Label lbTenXe;
+    private java.awt.Label lbUpdate;
     private com.view.swing.TextField txtGiaBan;
     private com.view.swing.TextField txtGiaNhap;
-    private com.view.swing.TextField txtNameCar;
     private com.view.swing.TextField txtTGBH;
+    private com.view.swing.TextField txtTenXe;
     // End of variables declaration//GEN-END:variables
 }

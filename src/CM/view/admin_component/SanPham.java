@@ -1,7 +1,7 @@
 package CM.view.admin_component;
 
 import CM.model.ModelNhanVien;
-import CM.view.card.AdminInsertUpdateSPCard;
+import CM.view.card.AdminUpdateSPCard;
 import CM.model.ModelXe;
 import CM.view.annouce.InformationSP;
 import CM.view.form.MainForm;
@@ -128,7 +128,7 @@ public class SanPham extends javax.swing.JPanel {
     private void cmdUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdUpdateActionPerformed
         try {
             if (user.getChucVu().equals("Quan ly")|| user.getChucVu().equals("Kho"))
-                dialog.showForm(new AdminInsertUpdateSPCard(model, dialog, main, user));
+                dialog.showForm(new AdminUpdateSPCard(model, dialog, main, user));
             else dialog.showForm(new RejectPanel(dialog));
         } catch (SQLException ex) {
             Logger.getLogger(SanPham.class.getName()).log(Level.SEVERE, null, ex);

@@ -55,7 +55,7 @@ public class AdminNVForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lbNV = new javax.swing.JLabel();
         txtSearch = new com.view.swing.TextField();
         cmdAdd = new com.view.swing.Button();
         cmdUpd = new com.view.swing.Button();
@@ -66,13 +66,13 @@ public class AdminNVForm extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(251, 238, 215));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(123, 100, 67));
-        jLabel1.setText("Nhân Viên");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbNV.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        lbNV.setForeground(new java.awt.Color(123, 100, 67));
+        lbNV.setText("Nhân Viên");
+        lbNV.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbNV.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lbNVMouseClicked(evt);
             }
         });
 
@@ -165,7 +165,7 @@ public class AdminNVForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lbNV)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -183,7 +183,7 @@ public class AdminNVForm extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(cmdAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
+                            .addComponent(lbNV)
                             .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -223,17 +223,17 @@ public class AdminNVForm extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cmdUpdActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void lbNVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbNVMouseClicked
         table.removeAllRow();
         txtSearch.setText("");
         init();
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_lbNVMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.view.swing.Button cmdAdd;
     private com.view.swing.Button cmdUpd;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lbNV;
     private com.view.swing.RoundPanel roundPanel1;
     private com.view.swing.RoundPanel roundPanel2;
     private javax.swing.JScrollPane scroll;

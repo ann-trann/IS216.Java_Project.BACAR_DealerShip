@@ -63,24 +63,24 @@
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lb" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbUpdate" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="labele3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNameCar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lbGiaBan" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbTenXe" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtTenXe" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtGiaBan" alignment="0" pref="185" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="labele4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbGiaNhap" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="txtGiaNhap" alignment="0" min="-2" pref="185" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="66" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labele5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbTGBH" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbLoaiXe" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="cbLoaiXe" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtTGBH" alignment="0" pref="185" max="32767" attributes="0"/>
@@ -96,7 +96,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="cmdCancel" min="-2" pref="69" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="cmdAdd" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="cmdUpd" min="-2" pref="70" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -111,21 +111,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  <Component id="lb" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbUpdate" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="label2" min="-2" max="-2" attributes="0"/>
-                      <Component id="labele5" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbTenXe" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbTGBH" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNameCar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTenXe" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTGBH" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="label5" min="-2" max="-2" attributes="0"/>
-                      <Component id="labele3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbLoaiXe" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbGiaBan" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -133,15 +133,15 @@
                       <Component id="cbLoaiXe" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="labele4" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbGiaNhap" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtGiaNhap" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="73" max="32767" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
                   <Component id="lbReport" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="cmdCancel" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="cmdAdd" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="cmdUpd" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               </Group>
@@ -149,7 +149,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="java.awt.Label" name="label2">
+        <Component class="java.awt.Label" name="lbTenXe">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="14" style="1"/>
@@ -160,7 +160,7 @@
             <Property name="text" type="java.lang.String" value="T&#xea;n xe"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="labele3">
+        <Component class="java.awt.Label" name="lbGiaBan">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="14" style="1"/>
@@ -171,9 +171,9 @@
             <Property name="text" type="java.lang.String" value="Gi&#xe1; b&#xe1;n"/>
           </Properties>
         </Component>
-        <Component class="com.view.swing.TextField" name="txtNameCar">
+        <Component class="com.view.swing.TextField" name="txtTenXe">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameCarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTenXeActionPerformed"/>
           </Events>
         </Component>
         <Component class="com.view.swing.TextField" name="txtGiaBan">
@@ -181,7 +181,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGiaBanActionPerformed"/>
           </Events>
         </Component>
-        <Component class="java.awt.Label" name="lb">
+        <Component class="java.awt.Label" name="lbUpdate">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="24" style="1"/>
@@ -189,10 +189,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6b" green="96" red="b7" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Th&#xea;m xe"/>
+            <Property name="text" type="java.lang.String" value="S&#x1eed;a th&#xf4;ng tin xe"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="labele4">
+        <Component class="java.awt.Label" name="lbGiaNhap">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="14" style="1"/>
@@ -205,7 +205,7 @@
         </Component>
         <Component class="com.view.swing.TextField" name="txtGiaNhap">
         </Component>
-        <Component class="java.awt.Label" name="labele5">
+        <Component class="java.awt.Label" name="lbTGBH">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="14" style="1"/>
@@ -218,7 +218,7 @@
         </Component>
         <Component class="com.view.swing.TextField" name="txtTGBH">
         </Component>
-        <Component class="java.awt.Label" name="label5">
+        <Component class="java.awt.Label" name="lbLoaiXe">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="14" style="1"/>
@@ -277,18 +277,18 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdCancelActionPerformed"/>
           </Events>
         </Component>
-        <Component class="com.view.swing.Button" name="cmdAdd">
+        <Component class="com.view.swing.Button" name="cmdUpd">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
+            <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="14" style="1"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdAddActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdUpdActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbReport">
