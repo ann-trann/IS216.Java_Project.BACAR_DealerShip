@@ -8,6 +8,7 @@ import CM.view.admin_component.MenuAdmin;
 import CM.view.admin_component.HeaderAdmin;
 import CM.view.form.AdminHDForm;
 import CM.view.form.AdminSPForm;
+import CM.view.form.AdminTTHDForm;
 import CM.view.staff_component.MenuStaffBH;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -22,11 +23,6 @@ import org.jdesktop.animation.timing.TimingTarget;
 import org.jdesktop.animation.timing.TimingTargetAdapter;
 
 public class Frame_StaffBH extends javax.swing.JFrame {
-
-    
-    
-    private AdminSPForm SPform;
-    private AdminHDForm HDform;
 
     private MenuStaffBH menu;
     private HeaderAdmin header;
@@ -79,6 +75,15 @@ public class Frame_StaffBH extends javax.swing.JFrame {
                     case 1: {
                         try {
                             main.showForm(new AdminHDForm(main));
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Frame_StaffBH.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    break;
+                    
+                    case 2: {
+                        try {
+                            main.showForm(new AdminTTHDForm());
                         } catch (SQLException ex) {
                             Logger.getLogger(Frame_StaffBH.class.getName()).log(Level.SEVERE, null, ex);
                         }

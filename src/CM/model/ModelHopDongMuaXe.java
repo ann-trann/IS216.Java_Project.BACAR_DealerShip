@@ -5,6 +5,7 @@ public class ModelHopDongMuaXe {
     private int maHDMX;
     private int maKH;
     private int maXE;
+    private String tenXE;
     private String ngay;
     private String triGia;
     private int maNV;
@@ -18,12 +19,31 @@ public class ModelHopDongMuaXe {
         this.maNV = maNV;
     }
     
+    public ModelHopDongMuaXe(int maHDMX, int maKH, String tenXe, String ngay, String triGia, int maNV) {
+        this.maHDMX = maHDMX;
+        this.maKH = maKH;
+        this.tenXE = tenXe;
+        this.ngay = ngay;
+        this.triGia = triGia;
+        this.maNV = maNV;
+    }
+    
     public ModelHopDongMuaXe(int maHDMX, int maKH, int maXE, int maNV) {
         this.maHDMX = maHDMX;
         this.maKH = maKH;
         this.maXE = maXE;
         this.maNV = maNV;
     }
+
+    public String getTenXE() {
+        return tenXE;
+    }
+
+    public void setTenXE(String tenXE) {
+        this.tenXE = tenXE;
+    }
+    
+    
 
     public int getMaHDMX() {
         return maHDMX;

@@ -47,7 +47,7 @@ public class MenuStaffKT extends javax.swing.JPanel {
     private void initItem(){
         listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/PK.png")), "    Phụ kiện"));
         listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/LSC.png")), "    Lịch sửa chữa"));
-        listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/HD.png")), "    Hóa đơn"));
+        listMenu1.addItem(new ModelMenu(new ImageIcon(getClass().getResource("/com/view/icon/HDon.png")), "    Hóa đơn"));
     }   
     // </editor-fold>
 

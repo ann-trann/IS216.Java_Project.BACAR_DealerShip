@@ -65,14 +65,14 @@ public class SanPham extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
         jLabel1.setText("SL:");
 
-        cmdUpdate.setText("+");
+        cmdUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/view/icon/upd.png"))); // NOI18N
         cmdUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdUpdateActionPerformed(evt);
             }
         });
 
-        cmdCheck.setText("-");
+        cmdCheck.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/view/icon/detail.png"))); // NOI18N
         cmdCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdCheckActionPerformed(evt);

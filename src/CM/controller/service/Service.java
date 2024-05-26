@@ -823,4 +823,23 @@ public class Service {
         }
         return list;
     }
+    
+    // Lấy tất cả Hợp đồng mua xe có trong db
+    public ArrayList<ModelHopDongMuaXe> getListHDMX() throws SQLException{
+        ArrayList<ModelHopDongMuaXe> list = new ArrayList<ModelHopDongMuaXe>();
+        String sql = "SELECT MAHDMX, MAKH, TENDONGXE, TO_CHAR(NGAYTAOHOPDONG, 'dd-mm-yyyy'), TRIGIA, MANV FROM HOPDONGMUAXE";
+        PreparedStatement p = con.prepareStatement(sql);
+        ResultSet r = p.executeQuery();
+        while (r.next()){
+            int MaHD = r.getInt(1);
+            int MaKH = r.getInt(2);
+            String tenXe = r.getString(3);
+            String ngay = r.getString(4);
+            String gia = r.getString(5);
+            int MaNV = r.getInt(6);
+            ModelHopDongMuaXe data = new ModelHopDongMuaXe(MaHD, MaKH, tenXe, ngay, gia, MaNV);
+            list.add(data);
+        }
+        return list;
+    }
 }
