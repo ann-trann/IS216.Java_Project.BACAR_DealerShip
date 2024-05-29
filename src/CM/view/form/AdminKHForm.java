@@ -21,6 +21,8 @@ public class AdminKHForm extends javax.swing.JPanel {
     }
     
     private void init(){
+        txtSearch.setText("");
+        txtSearch.setHint("Tên khách hàng"");
         for (ModelKhachHang data : list){
             table.addRow(new Object[]{data.getMaKH(), data.getTenKH(), data.getSoDT(), data.getLoaiKH()});
         }
@@ -158,7 +160,6 @@ public class AdminKHForm extends javax.swing.JPanel {
     private void lbKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbKHMouseClicked
         table.removeAllRow();
         init();
-        txtSearch.setText("");
     }//GEN-LAST:event_lbKHMouseClicked
 
 
