@@ -1115,15 +1115,6 @@ END;
 /
 
 
--- Tao trigger cho bang KHACHHANG, khi them moi 1 khach hang thi khach hang do loai thuong
-DROP TRIGGER TG_KH_INSCREATE OR REPLACE TRIGGER TG_KH_INS
-BEFORE INSERT ON KHACHHANG
-FOR EACH ROW
-BEGIN
-    :NEW.LOAIKH := 'Thuong';
-END;
-/    
-
 -- Tao trigger cho bang KHACHHANG, khong duoc doi loai khach hang thanh loai VIP khi chua du so tien, nguoc lai.
 
 CREATE OR REPLACE TRIGGER TG_KH_CHECK_LOAIKH
