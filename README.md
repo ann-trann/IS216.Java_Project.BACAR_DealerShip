@@ -41,7 +41,7 @@ Phát triển một hệ thống phần mềm tích hợp để quản lý toàn
 > * ­Công cụ vẽ sơ đồ phân tích và thiết kế dữ liệu: `StarUML`, `draw.io`.
 
 ## Yêu cầu cài đặt
-> * Sử dụng `JDK 17`
+> * Sử dụng `JDK 22`
 > * Sử dụng `ojdbc8.jar`
 
 ## Hướng dẫn cài đặt chương trình
