@@ -205,11 +205,25 @@ public class HDForm extends javax.swing.JPanel {
         DecimalFormat df = new DecimalFormat("#,###");
         for (ModelHoaDonSuaChua data : list){
             try {
-                ModelLichSuaChua modelLSC = service.getLSCFromID(data.getMaLSC());
-                String tenKH = service.getKH(modelLSC.getMaKH());
-                if (tenKH.toLowerCase().contains(txtSearch.getText().toLowerCase()))
-                table.addRow(new Object[]{data.getMaHD(), tenKH, data.getNgay(), df.format(Long.parseLong(data.getThanhTien())), data.getMaNV()});
-            
+                int maKH= 0;
+                for (ModelLichSuaChua dataLSC : service.getListLSC()){
+                    if (data.getMaLSC() == dataLSC.getMaLSC()){
+                        maKH = dataLSC.getMaKH();
+                        break;
+                    }
+                }
+                String tenKH = "";
+                for (ModelKhachHang dataKH : service.getListKH()){
+                    if (dataKH.getMaKH() == maKH){
+                        tenKH = dataKH.getTenKH();
+                        break;
+                    }
+                }
+                if (tenKH.toLowerCase().contains(txtSearch.getText().trim().toLowerCase())){
+                    table.addRow(new Object[]{data.getMaHD(), tenKH, data.getNgay(), df.format(Long.parseLong(data.getThanhTien())), data.getMaNV()});
+                    System.out.println("a");
+                }
+                
             } catch (SQLException ex) {
                 Logger.getLogger(HDForm.class.getName()).log(Level.SEVERE, null, ex);
             }
