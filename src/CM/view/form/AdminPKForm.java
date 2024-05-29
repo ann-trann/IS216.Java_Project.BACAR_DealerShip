@@ -183,7 +183,7 @@ public class AdminPKForm extends javax.swing.JPanel {
         table.removeAllRow();
         DecimalFormat df = new DecimalFormat("#,###");
         for (ModelPhuKien data : list){
-            if (data.getTenPK().contains(txtSearch.getText())){
+            if (data.getTenPK().toLowerCase().contains(txtSearch.getText().toLowerCase())){
                 table.addRow(new Object[]{data.getMaPK(), data.getTenPK(), data.getXuatXu(), data.getSoLuong(), df.format(Long.parseLong(data.getGiaBan()))});
             }
         }
