@@ -74,8 +74,10 @@ public class AdminSPForm extends javax.swing.JPanel {
     }
     
     private void initSP(){
+        int i = 1;
         for (ModelXe data : list){
-            data.setXeImg(new ImageIcon(getClass().getResource("/com/view/icon/Car1.png")));
+            data.setXeImg(new ImageIcon(getClass().getResource("/com/view/icon/Car" + i +".png")));
+            i++;
             form.addSP(data);
         }
     }

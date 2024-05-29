@@ -16,7 +16,7 @@ public class InformationSP extends javax.swing.JPanel {
         lbMaXe.setText(model.getMaXe() + "");
         lbTenXe.setText(model.getTenXe());
         lbLoaiXe.setText(model.getLoaiXe());
-        
+        img.setIcon(model.getXeImg());
         DecimalFormat df = new DecimalFormat("#,###");
         lbGia.setText(df.format(Long.parseLong(model.getGiaBan())));
     }
@@ -36,7 +36,7 @@ public class InformationSP extends javax.swing.JPanel {
         lbGia = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         roundPanel2 = new com.view.swing.RoundPanel();
-        jLabel9 = new javax.swing.JLabel();
+        img = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cmdExit = new com.view.swing.ButtonOutLine();
 
@@ -70,18 +70,18 @@ public class InformationSP extends javax.swing.JPanel {
         roundPanel2.setMaximumSize(new java.awt.Dimension(152, 222));
         roundPanel2.setMinimumSize(new java.awt.Dimension(152, 222));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/view/icon/Car1.png"))); // NOI18N
+        img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/view/icon/Car1.png"))); // NOI18N
 
         javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
         roundPanel2.setLayout(roundPanel2Layout);
         roundPanel2Layout.setHorizontalGroup(
             roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+            .addComponent(img, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
         );
         roundPanel2Layout.setVerticalGroup(
             roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(img, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -189,12 +189,12 @@ public class InformationSP extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.view.swing.ButtonOutLine cmdExit;
+    private javax.swing.JLabel img;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbGia;
     private javax.swing.JLabel lbLoaiXe;
     private javax.swing.JLabel lbMaXe;

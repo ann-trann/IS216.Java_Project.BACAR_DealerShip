@@ -60,6 +60,7 @@ public class SanPham extends javax.swing.JPanel {
         lbSoLuong.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
         lbSoLuong.setText("1");
 
+        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/view/icon/Car1.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
