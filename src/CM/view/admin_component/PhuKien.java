@@ -67,7 +67,7 @@ public class PhuKien extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        imgPK = new javax.swing.JLabel();
         lbTenPK = new javax.swing.JLabel();
         lbGia = new javax.swing.JLabel();
         lbSoLuong = new javax.swing.JLabel();
@@ -77,7 +77,7 @@ public class PhuKien extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/view/icon/PhuKien.png"))); // NOI18N
+        imgPK.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/view/icon/PhuKien.png"))); // NOI18N
 
         lbTenPK.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lbTenPK.setForeground(new java.awt.Color(183, 150, 107));
@@ -107,7 +107,7 @@ public class PhuKien extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+            .addComponent(imgPK, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +131,7 @@ public class PhuKien extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, Short.MAX_VALUE)
+                .addComponent(imgPK, javax.swing.GroupLayout.PREFERRED_SIZE, 170, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbTenPK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -153,7 +153,7 @@ public class PhuKien extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.view.swing.ButtonOutLine cmdDown;
     private com.view.swing.ButtonOutLine cmdUp;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imgPK;
     private javax.swing.JLabel lbGia;
     private javax.swing.JLabel lbSoLuong;
     private javax.swing.JLabel lbTenPK;

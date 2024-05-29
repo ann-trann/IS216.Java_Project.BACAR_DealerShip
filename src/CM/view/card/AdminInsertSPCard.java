@@ -53,7 +53,7 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
         lbGiaBan = new java.awt.Label();
         txtMaXe = new com.view.swing.TextField();
         txtGiaBan = new com.view.swing.TextField();
-        lbInsUpd = new java.awt.Label();
+        lbIns = new java.awt.Label();
         lbGiaNhap = new java.awt.Label();
         txtGiaNhap = new com.view.swing.TextField();
         lbTGBH = new java.awt.Label();
@@ -61,7 +61,7 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
         lbLoaiXe = new java.awt.Label();
         cbLoaiXe = new Combobox();
         cmdCancel = new com.view.swing.Button();
-        cmdIns = new com.view.swing.Button();
+        cmdAdd = new com.view.swing.Button();
         lbReport = new javax.swing.JLabel();
         lbMaXe = new java.awt.Label();
         txtTenXe = new com.view.swing.TextField();
@@ -90,9 +90,9 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
             }
         });
 
-        lbInsUpd.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        lbInsUpd.setForeground(new java.awt.Color(183, 150, 107));
-        lbInsUpd.setText("Thêm xe");
+        lbIns.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lbIns.setForeground(new java.awt.Color(183, 150, 107));
+        lbIns.setText("Thêm xe");
 
         lbGiaNhap.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lbGiaNhap.setForeground(new java.awt.Color(183, 150, 107));
@@ -121,12 +121,12 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
             }
         });
 
-        cmdIns.setForeground(new java.awt.Color(255, 255, 255));
-        cmdIns.setText("Thêm");
-        cmdIns.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        cmdIns.addActionListener(new java.awt.event.ActionListener() {
+        cmdAdd.setForeground(new java.awt.Color(255, 255, 255));
+        cmdAdd.setText("Thêm");
+        cmdAdd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cmdAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdInsActionPerformed(evt);
+                cmdAddActionPerformed(evt);
             }
         });
 
@@ -152,7 +152,7 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbInsUpd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbIns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +179,7 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(cmdIns, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lbReport)
@@ -189,7 +189,7 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(lbInsUpd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbIns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -220,7 +220,7 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmdIns, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45))
         );
 
@@ -254,7 +254,7 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
         dialog.setVisible(false);
     }//GEN-LAST:event_cmdCancelActionPerformed
 
-    private void cmdInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdInsActionPerformed
+    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
         if (!check()){
             lbReport.setText("Lỗi dữ liệu");
         } else{
@@ -291,7 +291,7 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
                 Logger.getLogger(AdminInsertSPCard.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_cmdInsActionPerformed
+    }//GEN-LAST:event_cmdAddActionPerformed
 
     private void txtTenXeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenXeActionPerformed
         // TODO add your handling code here:
@@ -300,12 +300,12 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbLoaiXe;
+    private com.view.swing.Button cmdAdd;
     private com.view.swing.Button cmdCancel;
-    private com.view.swing.Button cmdIns;
     private javax.swing.JPanel jPanel1;
     private java.awt.Label lbGiaBan;
     private java.awt.Label lbGiaNhap;
-    private java.awt.Label lbInsUpd;
+    private java.awt.Label lbIns;
     private java.awt.Label lbLoaiXe;
     private java.awt.Label lbMaXe;
     private javax.swing.JLabel lbReport;

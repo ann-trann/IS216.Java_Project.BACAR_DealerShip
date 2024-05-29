@@ -48,11 +48,11 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
             String tenKH = service.getKH(model.getMaKH());
             String SDT = service.getKH_SDT(model.getMaKH());
             txtMaXe.setText(model.getMaXe() + "");
-            txtNameKH.setText(tenKH);
-            txtDate.setText(model.getNgay());
+            txtTenKH.setText(tenKH);
+            txtNgay.setText(model.getNgay());
             txtSDT.setText(SDT);
-            lb.setText("Sửa lịch");
-            cmdAdd.setText("Sửa");
+            lbInsUpd.setText("Sửa lịch");
+            cmdAddUpd.setText("Sửa");
         }
     }
     
@@ -71,10 +71,10 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
         SelectedDate chooseDate = Date.getSelectedDate();
         if (txtMaXe.getText().isEmpty()) return false;
         if (!checkDate(chooseDate, currentDate)) return false;
-        if (txtNameKH.getText().isEmpty()) return false;
+        if (txtTenKH.getText().isEmpty()) return false;
         if (!txtSDT.getText().matches("-?\\d+(\\.\\d+)?")) return false;
         if (txtSDT.getText().length() != 10) return false;
-        if (!service.compair2date(service.getCurrentDate(), txtDate.getText())) return false;
+        if (!service.compair2date(service.getCurrentDate(), txtNgay.getText())) return false;
         return true;
     }
 
@@ -84,56 +84,56 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
 
         Date = new com.raven.datechooser.DateChooser();
         jPanel1 = new javax.swing.JPanel();
-        lb = new javax.swing.JLabel();
-        label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
-        label3 = new java.awt.Label();
-        label4 = new java.awt.Label();
-        label5 = new java.awt.Label();
+        lbInsUpd = new javax.swing.JLabel();
+        lbTenKH = new java.awt.Label();
+        lbSDT = new java.awt.Label();
+        lbMaXe = new java.awt.Label();
+        lbCa = new java.awt.Label();
+        lbNgay = new java.awt.Label();
         txtMaXe = new com.view.swing.TextField();
-        txtNameKH = new com.view.swing.TextField();
+        txtTenKH = new com.view.swing.TextField();
         txtSDT = new com.view.swing.TextField();
-        txtDate = new com.view.swing.TextField();
+        txtNgay = new com.view.swing.TextField();
         cmdCancel = new com.view.swing.Button();
-        cmdAdd = new com.view.swing.Button();
+        cmdAddUpd = new com.view.swing.Button();
         cbCa = new Combobox();
         lbReport = new javax.swing.JLabel();
 
         Date.setBackground(new java.awt.Color(183, 150, 107));
         Date.setForeground(new java.awt.Color(183, 150, 107));
-        Date.setTextRefernce(txtDate);
+        Date.setTextRefernce(txtNgay);
 
         setBackground(new java.awt.Color(251, 238, 215));
 
         jPanel1.setBackground(new java.awt.Color(251, 238, 215));
 
-        lb.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        lb.setForeground(new java.awt.Color(94, 68, 33));
-        lb.setText("Thêm lịch");
+        lbInsUpd.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        lbInsUpd.setForeground(new java.awt.Color(94, 68, 33));
+        lbInsUpd.setText("Thêm lịch");
 
-        label1.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-        label1.setForeground(new java.awt.Color(153, 112, 58));
-        label1.setText("Tên khách hàng");
+        lbTenKH.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        lbTenKH.setForeground(new java.awt.Color(153, 112, 58));
+        lbTenKH.setText("Tên khách hàng");
 
-        label2.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-        label2.setForeground(new java.awt.Color(153, 112, 58));
-        label2.setText("SĐT");
+        lbSDT.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        lbSDT.setForeground(new java.awt.Color(153, 112, 58));
+        lbSDT.setText("SĐT");
 
-        label3.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-        label3.setForeground(new java.awt.Color(153, 112, 58));
-        label3.setText("Mã xe");
+        lbMaXe.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        lbMaXe.setForeground(new java.awt.Color(153, 112, 58));
+        lbMaXe.setText("Mã xe");
 
-        label4.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-        label4.setForeground(new java.awt.Color(153, 112, 58));
-        label4.setText("Ca sữa");
+        lbCa.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        lbCa.setForeground(new java.awt.Color(153, 112, 58));
+        lbCa.setText("Ca");
 
-        label5.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-        label5.setForeground(new java.awt.Color(153, 112, 58));
-        label5.setText("Ngày sửa chữa");
+        lbNgay.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        lbNgay.setForeground(new java.awt.Color(153, 112, 58));
+        lbNgay.setText("Ngày sửa chữa");
 
-        txtDate.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNgay.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtDateMousePressed(evt);
+                txtNgayMousePressed(evt);
             }
         });
 
@@ -146,12 +146,12 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
             }
         });
 
-        cmdAdd.setForeground(new java.awt.Color(255, 255, 255));
-        cmdAdd.setText("Thêm");
-        cmdAdd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        cmdAdd.addActionListener(new java.awt.event.ActionListener() {
+        cmdAddUpd.setForeground(new java.awt.Color(255, 255, 255));
+        cmdAddUpd.setText("Thêm");
+        cmdAddUpd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cmdAddUpd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdAddActionPerformed(evt);
+                cmdAddUpdActionPerformed(evt);
             }
         });
 
@@ -175,28 +175,28 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lb)
-                                    .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbTenKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbInsUpd)
+                                    .addComponent(lbMaXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtMaXe, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                                 .addGap(150, 150, 150)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbCa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbNgay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNgay, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNameKH, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                            .addComponent(txtTenKH, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                             .addComponent(txtSDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(179, 179, 179)
-                                .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(cmdAddUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(150, 150, 150)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,26 +208,26 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(lb)
+                .addComponent(lbInsUpd)
                 .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbMaXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtMaXe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNgay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbTenKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbCa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lbNgay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNameKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTenKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbCa, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
-                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,7 +235,7 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmdAddUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -257,21 +257,21 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
+    private void cmdAddUpdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddUpdActionPerformed
         
         try {
             if (!check()){
                 lbReport.setText("Lỗi dữ liệu");
             } else try {
-                if (service.checkLSC((String)cbCa.getSelectedItem(), txtDate.getText())){
+                if (service.checkLSC((String)cbCa.getSelectedItem(), txtNgay.getText())){
                     lbReport.setText("Lịch hôm đó đã đầy");
                 } else{
                     try {
                         
                         int maKH = 0;
-                        String tenKH = txtNameKH.getText();
+                        String tenKH = txtTenKH.getText();
                         String SDT = txtSDT.getText();
-                        String ngaySC = txtDate.getText();
+                        String ngaySC = txtNgay.getText();
                         String ca = (String) cbCa.getSelectedItem();
                         int maXe = Integer.parseInt(txtMaXe.getText());
                         int maLSC = 0;
@@ -312,33 +312,33 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(AdminInsertUpdateLSCCard.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_cmdAddActionPerformed
+    }//GEN-LAST:event_cmdAddUpdActionPerformed
 
     private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
         dialog.setVisible(false);
     }//GEN-LAST:event_cmdCancelActionPerformed
 
-    private void txtDateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDateMousePressed
+    private void txtNgayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNgayMousePressed
         Date.showPopup();
-    }//GEN-LAST:event_txtDateMousePressed
+    }//GEN-LAST:event_txtNgayMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.raven.datechooser.DateChooser Date;
     private javax.swing.JComboBox<String> cbCa;
-    private com.view.swing.Button cmdAdd;
+    private com.view.swing.Button cmdAddUpd;
     private com.view.swing.Button cmdCancel;
     private javax.swing.JPanel jPanel1;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
-    private java.awt.Label label3;
-    private java.awt.Label label4;
-    private java.awt.Label label5;
-    private javax.swing.JLabel lb;
+    private java.awt.Label lbCa;
+    private javax.swing.JLabel lbInsUpd;
+    private java.awt.Label lbMaXe;
+    private java.awt.Label lbNgay;
     private javax.swing.JLabel lbReport;
-    private com.view.swing.TextField txtDate;
+    private java.awt.Label lbSDT;
+    private java.awt.Label lbTenKH;
     private com.view.swing.TextField txtMaXe;
-    private com.view.swing.TextField txtNameKH;
+    private com.view.swing.TextField txtNgay;
     private com.view.swing.TextField txtSDT;
+    private com.view.swing.TextField txtTenKH;
     // End of variables declaration//GEN-END:variables
 }
