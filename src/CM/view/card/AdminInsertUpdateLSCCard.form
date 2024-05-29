@@ -11,7 +11,7 @@
           <Color blue="6b" green="96" red="b7" type="rgb"/>
         </Property>
         <Property name="textRefernce" type="javax.swing.JTextField" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="txtDate"/>
+          <ComponentRef name="txtNgay"/>
         </Property>
       </Properties>
     </Component>
@@ -71,10 +71,10 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="label1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lb" min="-2" max="-2" attributes="0"/>
-                                      <Component id="label3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbTenKH" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbSDT" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbInsUpd" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbMaXe" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -84,14 +84,14 @@
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label4" min="-2" max="-2" attributes="0"/>
-                              <Component id="label5" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDate" min="-2" pref="184" max="-2" attributes="0"/>
+                              <Component id="lbCa" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbNgay" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNgay" min="-2" pref="184" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtNameKH" pref="184" max="32767" attributes="0"/>
+                              <Component id="txtTenKH" pref="184" max="32767" attributes="0"/>
                               <Component id="txtSDT" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -99,7 +99,7 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="cmdCancel" min="-2" pref="58" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                  <Component id="cmdAdd" min="-2" pref="58" max="-2" attributes="0"/>
+                                  <Component id="cmdAddUpd" min="-2" pref="58" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
@@ -119,31 +119,31 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  <Component id="lb" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbInsUpd" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="label3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbMaXe" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtMaXe" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNgay" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label1" min="-2" max="-2" attributes="0"/>
-                              <Component id="label4" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbTenKH" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbCa" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="label5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbNgay" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtNameKH" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTenKH" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbCa" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                  <Component id="label2" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbSDT" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtSDT" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -152,7 +152,7 @@
                   <EmptySpace pref="9" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="cmdCancel" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="cmdAdd" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="cmdAddUpd" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -160,7 +160,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lb">
+        <Component class="javax.swing.JLabel" name="lbInsUpd">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="20" style="1"/>
@@ -171,7 +171,7 @@
             <Property name="text" type="java.lang.String" value="Th&#xea;m l&#x1ecb;ch"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="label1">
+        <Component class="java.awt.Label" name="lbTenKH">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="16" style="1"/>
@@ -182,7 +182,7 @@
             <Property name="text" type="java.lang.String" value="T&#xea;n kh&#xe1;ch h&#xe0;ng"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="label2">
+        <Component class="java.awt.Label" name="lbSDT">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="16" style="1"/>
@@ -193,7 +193,7 @@
             <Property name="text" type="java.lang.String" value="S&#x110;T"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="label3">
+        <Component class="java.awt.Label" name="lbMaXe">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="16" style="1"/>
@@ -204,7 +204,7 @@
             <Property name="text" type="java.lang.String" value="M&#xe3; xe"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="label4">
+        <Component class="java.awt.Label" name="lbCa">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="16" style="1"/>
@@ -215,7 +215,7 @@
             <Property name="text" type="java.lang.String" value="Ca"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="label5">
+        <Component class="java.awt.Label" name="lbNgay">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="16" style="1"/>
@@ -228,13 +228,13 @@
         </Component>
         <Component class="com.view.swing.TextField" name="txtMaXe">
         </Component>
-        <Component class="com.view.swing.TextField" name="txtNameKH">
+        <Component class="com.view.swing.TextField" name="txtTenKH">
         </Component>
         <Component class="com.view.swing.TextField" name="txtSDT">
         </Component>
-        <Component class="com.view.swing.TextField" name="txtDate">
+        <Component class="com.view.swing.TextField" name="txtNgay">
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDateMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtNgayMousePressed"/>
           </Events>
         </Component>
         <Component class="com.view.swing.Button" name="cmdCancel">
@@ -251,7 +251,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdCancelActionPerformed"/>
           </Events>
         </Component>
-        <Component class="com.view.swing.Button" name="cmdAdd">
+        <Component class="com.view.swing.Button" name="cmdAddUpd">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -262,7 +262,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdAddActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdAddUpdActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbCa">

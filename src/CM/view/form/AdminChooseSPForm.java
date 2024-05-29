@@ -57,16 +57,16 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
 
         scrollPanel = new javax.swing.JScrollPane();
         panel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lbChonXe = new javax.swing.JLabel();
         txtSearch = new com.view.swing.TextField();
         cmdCancel = new com.view.swing.Button();
         roundPanel1 = new com.view.swing.RoundPanel();
         roundPanel2 = new com.view.swing.RoundPanel();
         scroll = new javax.swing.JScrollPane();
         table = new com.view.swing.Table();
-        jLabel2 = new javax.swing.JLabel();
+        lbTenKH = new javax.swing.JLabel();
         txtTenKH = new com.view.swing.TextField();
-        jLabel3 = new javax.swing.JLabel();
+        lbSDT = new javax.swing.JLabel();
         txtSDT = new com.view.swing.TextField();
         cmdCreate = new com.view.swing.Button();
         lbReport = new javax.swing.JLabel();
@@ -78,13 +78,13 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
 
         panel.setBackground(new java.awt.Color(251, 238, 215));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(123, 100, 67));
-        jLabel1.setText("Chọn xe");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbChonXe.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        lbChonXe.setForeground(new java.awt.Color(123, 100, 67));
+        lbChonXe.setText("Chọn xe");
+        lbChonXe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbChonXe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lbChonXeMouseClicked(evt);
             }
         });
 
@@ -163,23 +163,23 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
                 .addGap(15, 15, 15))
         );
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(123, 100, 67));
-        jLabel2.setText("Tên khách hàng:");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbTenKH.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbTenKH.setForeground(new java.awt.Color(123, 100, 67));
+        lbTenKH.setText("Tên khách hàng:");
+        lbTenKH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbTenKH.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                lbTenKHMouseClicked(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(123, 100, 67));
-        jLabel3.setText("Số điện thoại     :");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbSDT.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lbSDT.setForeground(new java.awt.Color(123, 100, 67));
+        lbSDT.setText("Số điện thoại     :");
+        lbSDT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbSDT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                lbSDTMouseClicked(evt);
             }
         });
 
@@ -211,7 +211,7 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
                         .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(roundPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                                .addComponent(lbChonXe, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelLayout.createSequentialGroup()
                                         .addGap(275, 275, 275)
@@ -223,8 +223,8 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                                 .addGap(153, 153, 153)
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lbTenKH, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                                    .addComponent(lbSDT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lbReport, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -238,10 +238,10 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lbChonXe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(cmdCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -250,11 +250,11 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTenKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(lbTenKH))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(lbSDT))
                 .addGap(14, 14, 14)
                 .addComponent(lbReport)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -276,11 +276,11 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void lbChonXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbChonXeMouseClicked
         table.removeAllRow();
         txtSearch.setText("");
         init();
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_lbChonXeMouseClicked
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         String name = txtSearch.getText().toLowerCase();
@@ -303,13 +303,13 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cmdCancelActionPerformed
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void lbTenKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTenKHMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_lbTenKHMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void lbSDTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSDTMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_lbSDTMouseClicked
 
     private void cmdCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCreateActionPerformed
         if (!check()){
@@ -335,10 +335,10 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.view.swing.Button cmdCancel;
     private com.view.swing.Button cmdCreate;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lbChonXe;
     private javax.swing.JLabel lbReport;
+    private javax.swing.JLabel lbSDT;
+    private javax.swing.JLabel lbTenKH;
     private javax.swing.JPanel panel;
     private com.view.swing.RoundPanel roundPanel1;
     private com.view.swing.RoundPanel roundPanel2;

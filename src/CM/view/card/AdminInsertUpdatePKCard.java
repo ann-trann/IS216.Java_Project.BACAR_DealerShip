@@ -28,8 +28,8 @@ public class AdminInsertUpdatePKCard extends javax.swing.JPanel {
         this.model = model;
         this.user = user;
         if (model != null){
-            label1.setText("Sửa phụ kiện");
-            cmdAdd.setText("Sửa");
+            lbInsUpd.setText("Sửa phụ kiện");
+            cmdAddUpd.setText("Sửa");
             txtTenPK.setText(model.getTenPK());
             txtGiaBan.setText(model.getGiaBan());
             txtGiaNhap.setText(model.getGiaNhap());
@@ -47,7 +47,7 @@ public class AdminInsertUpdatePKCard extends javax.swing.JPanel {
                 cmdCancelActionPerformed(e);
             }
         });
-        cmdAdd.addActionListener(new ActionListener(){
+        cmdAddUpd.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 cmdAddActionPerformed(e);
@@ -78,44 +78,44 @@ public class AdminInsertUpdatePKCard extends javax.swing.JPanel {
 
         date = new com.raven.datechooser.DateChooser();
         jPanel1 = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
+        lbInsUpd = new java.awt.Label();
         txtTenPK = new com.view.swing.TextField();
         txtGiaBan = new com.view.swing.TextField();
         txtSoLuong = new com.view.swing.TextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lbTenPK = new javax.swing.JLabel();
+        lbGiaNhap = new javax.swing.JLabel();
+        lbGiaBan = new javax.swing.JLabel();
+        lbSoLuong = new javax.swing.JLabel();
         txtGiaNhap = new com.view.swing.TextField();
         txtXuatXu = new com.view.swing.TextField();
-        jLabel8 = new javax.swing.JLabel();
+        lbXuatXu = new javax.swing.JLabel();
         cmdCancel = new com.view.swing.Button();
-        cmdAdd = new com.view.swing.Button();
+        cmdAddUpd = new com.view.swing.Button();
         lbReport = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(251, 238, 215));
 
         jPanel1.setBackground(new java.awt.Color(251, 238, 215));
 
-        label1.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        label1.setForeground(new java.awt.Color(94, 68, 33));
-        label1.setText("Thêm phụ kiện");
+        lbInsUpd.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        lbInsUpd.setForeground(new java.awt.Color(94, 68, 33));
+        lbInsUpd.setText("Thêm phụ kiện");
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel1.setText("Tên phụ kiện");
+        lbTenPK.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbTenPK.setForeground(new java.awt.Color(153, 112, 58));
+        lbTenPK.setText("Tên phụ kiện");
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel3.setText("Giá nhập");
+        lbGiaNhap.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbGiaNhap.setForeground(new java.awt.Color(153, 112, 58));
+        lbGiaNhap.setText("Giá nhập");
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel5.setText("Giá bán");
+        lbGiaBan.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbGiaBan.setForeground(new java.awt.Color(153, 112, 58));
+        lbGiaBan.setText("Giá bán");
 
-        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel7.setText("Số lượng");
+        lbSoLuong.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbSoLuong.setForeground(new java.awt.Color(153, 112, 58));
+        lbSoLuong.setText("Số lượng");
 
         txtGiaNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,17 +123,17 @@ public class AdminInsertUpdatePKCard extends javax.swing.JPanel {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel8.setText("Xuất sứ");
+        lbXuatXu.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbXuatXu.setForeground(new java.awt.Color(153, 112, 58));
+        lbXuatXu.setText("Xuất xứ");
 
         cmdCancel.setForeground(new java.awt.Color(255, 255, 255));
         cmdCancel.setText("Hủy");
         cmdCancel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
 
-        cmdAdd.setForeground(new java.awt.Color(255, 255, 255));
-        cmdAdd.setText("Thêm");
-        cmdAdd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cmdAddUpd.setForeground(new java.awt.Color(255, 255, 255));
+        cmdAddUpd.setText("Thêm");
+        cmdAddUpd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
 
         lbReport.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbReport.setForeground(new java.awt.Color(94, 68, 33));
@@ -148,60 +148,60 @@ public class AdminInsertUpdatePKCard extends javax.swing.JPanel {
                 .addContainerGap(53, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbInsUpd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(19, 19, 19))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbTenPK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtGiaNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTenPK, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lbGiaNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(0, 58, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbXuatXu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtXuatXu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(lbSoLuong, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                     .addComponent(txtGiaBan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbGiaBan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtSoLuong, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbReport, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmdAddUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbInsUpd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
+                    .addComponent(lbGiaBan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbTenPK, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtGiaBan, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                     .addComponent(txtTenPK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbGiaNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtGiaNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbXuatXu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -209,7 +209,7 @@ public class AdminInsertUpdatePKCard extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmdAddUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(72, 72, 72))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbReport)
@@ -223,9 +223,9 @@ public class AdminInsertUpdatePKCard extends javax.swing.JPanel {
             .addGap(0, 695, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(53, Short.MAX_VALUE)
+                    .addContainerGap(58, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(48, Short.MAX_VALUE)))
+                    .addContainerGap(53, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,17 +299,17 @@ public class AdminInsertUpdatePKCard extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.view.swing.Button cmdAdd;
+    private com.view.swing.Button cmdAddUpd;
     private com.view.swing.Button cmdCancel;
     private com.raven.datechooser.DateChooser date;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private java.awt.Label label1;
+    private javax.swing.JLabel lbGiaBan;
+    private javax.swing.JLabel lbGiaNhap;
+    private java.awt.Label lbInsUpd;
     private javax.swing.JLabel lbReport;
+    private javax.swing.JLabel lbSoLuong;
+    private javax.swing.JLabel lbTenPK;
+    private javax.swing.JLabel lbXuatXu;
     private com.view.swing.TextField txtGiaBan;
     private com.view.swing.TextField txtGiaNhap;
     private com.view.swing.TextField txtSoLuong;

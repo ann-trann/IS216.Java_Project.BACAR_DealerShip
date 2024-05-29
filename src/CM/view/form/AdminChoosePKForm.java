@@ -65,7 +65,7 @@ public class AdminChoosePKForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lbChonPK = new javax.swing.JLabel();
         cmdCancel = new com.view.swing.Button();
         cmdNext = new com.view.swing.Button();
         scroll = new javax.swing.JScrollPane();
@@ -73,9 +73,9 @@ public class AdminChoosePKForm extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(251, 238, 215));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(94, 68, 33));
-        jLabel1.setText("Chọn phụ kiện");
+        lbChonPK.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        lbChonPK.setForeground(new java.awt.Color(94, 68, 33));
+        lbChonPK.setText("Chọn phụ kiện");
 
         cmdCancel.setForeground(new java.awt.Color(255, 255, 255));
         cmdCancel.setText("Hủy");
@@ -129,7 +129,7 @@ public class AdminChoosePKForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(scroll)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbChonPK, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -137,7 +137,7 @@ public class AdminChoosePKForm extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbChonPK, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scroll)
                 .addGap(18, 18, 18)
@@ -191,7 +191,7 @@ public class AdminChoosePKForm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.view.swing.Button cmdCancel;
     private com.view.swing.Button cmdNext;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lbChonPK;
     private javax.swing.JPanel panel;
     private javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables

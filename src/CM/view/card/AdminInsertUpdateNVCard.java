@@ -34,10 +34,6 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
     private void init(){
         lbReport.setText("");
         
-        cbChucVu.setBackground(new Color(251, 238, 215));
-        
-        cbTrangThai.setBackground(new Color(251, 238, 215));
-        
         cmdCancel.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,23 +44,23 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
             txtTenNV.setText(model.getTenNV());
             txtEmail.setText(model.getEmail());
             txtLuong.setText(model.getLuong());
-            txtMk.setText(model.getMatKhau());
+            txtMatKhau.setText(model.getMatKhau());
             txtSDT.setText(model.getSDT());
-            txtTK.setText(model.getTaiKhoan());
-            lb.setText("Sửa nhân viên");
-            cmdAdd.setText("Sửa");
+            txtTaiKhoan.setText(model.getTaiKhoan());
+            lbInsUpd.setText("Sửa nhân viên");
+            cmdAddUpd.setText("Sửa");
         }
     }
     
     private boolean check() throws SQLException{
-        if (cmdAdd.getText().equals("Sửa")) return true;
+        if (cmdAddUpd.getText().equals("Sửa")) return true;
         if (txtTenNV.getText().isBlank()) return false;
         if (!txtSDT.getText().matches("-?\\d+(\\.\\d+)?")) return false;
         if (txtSDT.getText().length() != 10) return false;
         if (!txtLuong.getText().matches("-?\\d+(\\.\\d+)?")) return false;
         if (!txtEmail.getText().contains("@gmail.com")) return false;
         for (ModelNhanVien model : service.getListNV()){
-            if (model.getTaiKhoan().equals(txtTK.getText())){
+            if (model.getTaiKhoan().equals(txtTaiKhoan.getText())){
                 return false;
             }
         }
@@ -76,23 +72,23 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        lb = new java.awt.Label();
+        lbInsUpd = new java.awt.Label();
         txtTenNV = new com.view.swing.TextField();
         txtSDT = new com.view.swing.TextField();
         txtEmail = new com.view.swing.TextField();
         txtLuong = new com.view.swing.TextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtTK = new com.view.swing.TextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtMk = new com.view.swing.TextField();
+        lbTenNV = new javax.swing.JLabel();
+        lbChucVu = new javax.swing.JLabel();
+        lbSDT = new javax.swing.JLabel();
+        lbEmail = new javax.swing.JLabel();
+        lbLuong = new javax.swing.JLabel();
+        lbTaiKhoan = new javax.swing.JLabel();
+        txtTaiKhoan = new com.view.swing.TextField();
+        lbMatKhau = new javax.swing.JLabel();
+        txtMatKhau = new com.view.swing.TextField();
         cmdCancel = new com.view.swing.Button();
-        cmdAdd = new com.view.swing.Button();
-        jLabel10 = new javax.swing.JLabel();
+        cmdAddUpd = new com.view.swing.Button();
+        lbTrangThai = new javax.swing.JLabel();
         cbTrangThai = new Combobox();
         cbChucVu = new Combobox();
         lbReport = new javax.swing.JLabel();
@@ -101,9 +97,9 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(251, 238, 215));
 
-        lb.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        lb.setForeground(new java.awt.Color(94, 68, 33));
-        lb.setText("Thêm nhân viên");
+        lbInsUpd.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        lbInsUpd.setForeground(new java.awt.Color(94, 68, 33));
+        lbInsUpd.setText("Thêm nhân viên");
 
         txtSDT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,43 +113,43 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel1.setText("Tên nhân viên");
+        lbTenNV.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbTenNV.setForeground(new java.awt.Color(153, 112, 58));
+        lbTenNV.setText("Tên nhân viên");
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel3.setText("Chức vụ");
+        lbChucVu.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbChucVu.setForeground(new java.awt.Color(153, 112, 58));
+        lbChucVu.setText("Chức vụ");
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel4.setText("Số điện thoại");
+        lbSDT.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbSDT.setForeground(new java.awt.Color(153, 112, 58));
+        lbSDT.setText("Số điện thoại");
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel5.setText("Email");
+        lbEmail.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbEmail.setForeground(new java.awt.Color(153, 112, 58));
+        lbEmail.setText("Email");
 
-        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel6.setText("Lương");
+        lbLuong.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbLuong.setForeground(new java.awt.Color(153, 112, 58));
+        lbLuong.setText("Lương");
 
-        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel8.setText("Tài khoản");
+        lbTaiKhoan.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbTaiKhoan.setForeground(new java.awt.Color(153, 112, 58));
+        lbTaiKhoan.setText("Tài khoản");
 
-        txtTK.addActionListener(new java.awt.event.ActionListener() {
+        txtTaiKhoan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTKActionPerformed(evt);
+                txtTaiKhoanActionPerformed(evt);
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel9.setText("Mật khẩu");
+        lbMatKhau.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbMatKhau.setForeground(new java.awt.Color(153, 112, 58));
+        lbMatKhau.setText("Mật khẩu");
 
-        txtMk.addActionListener(new java.awt.event.ActionListener() {
+        txtMatKhau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMkActionPerformed(evt);
+                txtMatKhauActionPerformed(evt);
             }
         });
 
@@ -161,31 +157,31 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
         cmdCancel.setText("Hủy");
         cmdCancel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
 
-        cmdAdd.setForeground(new java.awt.Color(255, 255, 255));
-        cmdAdd.setText("Thêm");
-        cmdAdd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        cmdAdd.addActionListener(new java.awt.event.ActionListener() {
+        cmdAddUpd.setForeground(new java.awt.Color(255, 255, 255));
+        cmdAddUpd.setText("Thêm");
+        cmdAddUpd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cmdAddUpd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdAddActionPerformed(evt);
+                cmdAddUpdActionPerformed(evt);
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(153, 112, 58));
-        jLabel10.setText("Trạng thái");
+        lbTrangThai.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lbTrangThai.setForeground(new java.awt.Color(153, 112, 58));
+        lbTrangThai.setText("Trạng thái");
 
-        cbTrangThai.setBackground(new java.awt.Color(251, 238, 215));
         cbTrangThai.setForeground(new java.awt.Color(153, 112, 58));
         cbTrangThai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dang lam viec", "Da nghi" }));
         cbTrangThai.setSelectedItem((model != null) ? model.getTrangThai() : "Dang lam viec");
         cbTrangThai.setBorder(null);
         cbTrangThai.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbTrangThai.setOpaque(true);
 
-        cbChucVu.setBackground(new java.awt.Color(251, 238, 215));
         cbChucVu.setForeground(new java.awt.Color(153, 112, 58));
         cbChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ban hang", "Kho", "Sua chua", "Quan ly" }));
         cbChucVu.setSelectedItem((model == null) ? "Ban hang" : model.getChucVu());
         cbChucVu.setBorder(null);
+        cbChucVu.setOpaque(true);
 
         lbReport.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lbReport.setForeground(new java.awt.Color(94, 68, 33));
@@ -201,33 +197,33 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap(51, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lb, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(lbInsUpd, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                            .addComponent(lbTenNV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtTenNV, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(78, 78, 78)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtMk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(lbEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTaiKhoan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtMatKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(cbTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -237,52 +233,52 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                                 .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cmdAddUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(69, 69, 69))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lb, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lbInsUpd, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
+                    .addComponent(lbEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbTenNV, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtTenNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                    .addComponent(lbChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTrangThai))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cbTrangThai, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(cbChucVu))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel8))
+                    .addComponent(lbSDT)
+                    .addComponent(lbTaiKhoan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel9))
+                    .addComponent(lbLuong)
+                    .addComponent(lbMatKhau))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbReport)
                 .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cmdAddUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -315,7 +311,7 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
 
     }//GEN-LAST:event_cmdCancelActionPerformed
 
-    private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed
+    private void cmdAddUpdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddUpdActionPerformed
         try {
             if (!check()){
                 lbReport.setText("Lỗi dữ liệu");
@@ -324,8 +320,8 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
                 String SDT = txtSDT.getText();
                 String email = txtEmail.getText();
                 String Luong = txtLuong.getText();
-                String taiKhoan = txtTK.getText();
-                String matKhau = txtMk.getText();
+                String taiKhoan = txtTaiKhoan.getText();
+                String matKhau = txtMatKhau.getText();
                 String chucVu = (String) cbChucVu.getSelectedItem();
                 String trangThai = (String) cbTrangThai.getSelectedItem();
                 if (model == null){
@@ -338,38 +334,38 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(AdminInsertUpdateNVCard.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_cmdAddActionPerformed
+    }//GEN-LAST:event_cmdAddUpdActionPerformed
 
-    private void txtTKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTKActionPerformed
+    private void txtTaiKhoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTaiKhoanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTKActionPerformed
+    }//GEN-LAST:event_txtTaiKhoanActionPerformed
 
-    private void txtMkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMkActionPerformed
+    private void txtMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatKhauActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMkActionPerformed
+    }//GEN-LAST:event_txtMatKhauActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbChucVu;
     private javax.swing.JComboBox<String> cbTrangThai;
-    private com.view.swing.Button cmdAdd;
+    private com.view.swing.Button cmdAddUpd;
     private com.view.swing.Button cmdCancel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private java.awt.Label lb;
+    private javax.swing.JLabel lbChucVu;
+    private javax.swing.JLabel lbEmail;
+    private java.awt.Label lbInsUpd;
+    private javax.swing.JLabel lbLuong;
+    private javax.swing.JLabel lbMatKhau;
     private javax.swing.JLabel lbReport;
+    private javax.swing.JLabel lbSDT;
+    private javax.swing.JLabel lbTaiKhoan;
+    private javax.swing.JLabel lbTenNV;
+    private javax.swing.JLabel lbTrangThai;
     private com.view.swing.TextField txtEmail;
     private com.view.swing.TextField txtLuong;
-    private com.view.swing.TextField txtMk;
+    private com.view.swing.TextField txtMatKhau;
     private com.view.swing.TextField txtSDT;
-    private com.view.swing.TextField txtTK;
+    private com.view.swing.TextField txtTaiKhoan;
     private com.view.swing.TextField txtTenNV;
     // End of variables declaration//GEN-END:variables
 }
