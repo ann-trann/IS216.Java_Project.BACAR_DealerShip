@@ -4,14 +4,13 @@ package CM.view.form;
 import CM.controller.service.Service;
 import CM.model.ModelCTHDSC;
 import CM.model.ModelHoaDonSuaChua;
-import CM.model.ModelHopDongMuaXe;
 import CM.model.ModelKhachHang;
 import CM.model.ModelLichSuaChua;
 import CM.model.ModelNhanVien;
 import CM.model.ModelPhieuBaoHanh;
 import CM.model.ModelPhuKien;
 import CM.view.admin_component.DialogPanel;
-import CM.view.annouce.SuccessPanel;
+import CM.view.annouce.HDSC_SuccessPanel;
 import com.view.swing.ScrollBarCustom;
 import java.io.File;
 import java.io.IOException;
@@ -586,7 +585,7 @@ public class AdminCofirmBillForm extends javax.swing.JPanel {
             File file=new File("src\\CM\\view\\export_bill\\HoaDon_ID-" + maHD + ".pdf");
             this.insertHD();
             this.insertCTHDSC();
-            dialog.showForm(new SuccessPanel(dialog));
+            dialog.showForm(new HDSC_SuccessPanel(dialog));
             main.showForm(new AdminLSCForm(main, dialog, user));
 
         } catch (IOException ex) {

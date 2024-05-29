@@ -191,7 +191,7 @@ public class DoubleCheckPanel extends javax.swing.JPanel {
                     int maXe = service.getMaXe_Min(xe.getMaXe());
                     service.SellXe(maHD);
                     service.insertHDBX(new ModelHopDongMuaXe(maHD, model.getMaKH(), maXe, user.getMaNV()));
-                    dialog.showForm(new SuccessPanel(dialog));
+                    dialog.showForm(new HDSC_SuccessPanel(dialog));
                     main.showForm(new AdminSPForm(main, dialog, user));
                 }
             } else {
@@ -199,7 +199,7 @@ public class DoubleCheckPanel extends javax.swing.JPanel {
                 int maKH = service.getMaKH_next();
                 service.insertKH(new ModelKhachHang(maKH, lbTenKH.getText(), lbSDT.getText(), "Thuong"));
                 service.insertHDBX(new ModelHopDongMuaXe(maHD, maKH, maXe, user.getMaNV()));
-                dialog.showForm(new SuccessPanel(dialog));
+                dialog.showForm(new HDMX_SuccessPanel(dialog));
                 main.showForm(new AdminSPForm(main, dialog, user));
             }
         } catch (SQLException ex) {

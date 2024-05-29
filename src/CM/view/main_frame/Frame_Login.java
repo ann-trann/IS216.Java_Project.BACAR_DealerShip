@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JLayeredPane;
 import net.miginfocom.swing.MigLayout;
 
 public class Frame_Login extends javax.swing.JFrame {

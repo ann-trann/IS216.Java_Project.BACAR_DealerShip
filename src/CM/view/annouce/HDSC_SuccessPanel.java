@@ -3,11 +3,11 @@ package CM.view.annouce;
 
 import CM.view.admin_component.DialogPanel;
 
-public class SuccessPanel extends javax.swing.JPanel {
+public class HDSC_SuccessPanel extends javax.swing.JPanel {
 
     private DialogPanel dialog;
     
-    public SuccessPanel(DialogPanel dialog) {
+    public HDSC_SuccessPanel(DialogPanel dialog) {
         initComponents();
         this.dialog = dialog;
     }
