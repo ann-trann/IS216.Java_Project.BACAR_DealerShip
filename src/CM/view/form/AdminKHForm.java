@@ -22,7 +22,7 @@ public class AdminKHForm extends javax.swing.JPanel {
     
     private void init(){
         txtSearch.setText("");
-        txtSearch.setHint("Tên khách hàng"");
+        txtSearch.setHint("Tên khách hàng");
         for (ModelKhachHang data : list){
             table.addRow(new Object[]{data.getMaKH(), data.getTenKH(), data.getSoDT(), data.getLoaiKH()});
         }
