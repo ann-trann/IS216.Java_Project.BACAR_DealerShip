@@ -87,11 +87,11 @@ public class AdminTTHDForm extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Mã hợp đồng", "Tên khách hàng", "Tên xe", "Trị giá", "Ngày", "Mã nhân viên"
+                "Mã hợp đồng", "Tên khách hàng", "Tên xe", "Ngày", "Trị giá", "Mã nhân viên"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

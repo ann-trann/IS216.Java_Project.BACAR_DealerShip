@@ -154,9 +154,9 @@
                         <Column editable="false" title="M&#xe3; h&#x1ee3;p &#x111;&#x1ed3;ng" type="java.lang.Object"/>
                         <Column editable="false" title="T&#xea;n kh&#xe1;ch h&#xe0;ng" type="java.lang.Object"/>
                         <Column editable="false" title="T&#xea;n xe" type="java.lang.Object"/>
-                        <Column editable="false" title="Tr&#x1ecb; gi&#xe1;" type="java.lang.Object"/>
                         <Column editable="false" title="Ng&#xe0;y" type="java.lang.Object"/>
-                        <Column editable="true" title="M&#xe3; nh&#xe2;n vi&#xea;n" type="java.lang.Object"/>
+                        <Column editable="false" title="Tr&#x1ecb; gi&#xe1;" type="java.lang.Object"/>
+                        <Column editable="false" title="M&#xe3; nh&#xe2;n vi&#xea;n" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
