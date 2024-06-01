@@ -648,16 +648,16 @@ INSERT INTO PhieuBaoHanh (MaPBH, THOIHANBAOHANH) VALUES (121, TO_DATE('2026-05-0
 
 -- Du lieu bang LichSuaChua
 
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (101, 101, null, TO_DATE('2024-05-03', 'YYYY-MM-DD'), 1, 106, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (102, 101, null, TO_DATE('2024-05-07', 'YYYY-MM-DD'), 2, 107, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (103, 109, null, TO_DATE('2024-05-09', 'YYYY-MM-DD'), 1, 108, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (104, 103, null, TO_DATE('2024-05-10', 'YYYY-MM-DD'), 2, 109, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (105, 105, null, TO_DATE('2024-05-12', 'YYYY-MM-DD'), 1, 110, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (106, 108, null, TO_DATE('2024-05-13', 'YYYY-MM-DD'), 2, 106, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (107, 112, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 1, 108, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (108, 116, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 2, 109, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (109, 107, null, TO_DATE('2024-05-16', 'YYYY-MM-DD'), 1, 110, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (110, 118, null, TO_DATE('2024-05-19', 'YYYY-MM-DD'), 2, 106, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (101, 101, 105, TO_DATE('2024-05-03', 'YYYY-MM-DD'), 1, 106, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (102, 101, 119, TO_DATE('2024-05-07', 'YYYY-MM-DD'), 2, 107, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (103, 109, 124, TO_DATE('2024-05-09', 'YYYY-MM-DD'), 1, 108, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (104, 103, 145, TO_DATE('2024-05-10', 'YYYY-MM-DD'), 2, 109, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (105, 105, 180, TO_DATE('2024-05-12', 'YYYY-MM-DD'), 1, 110, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (106, 108, 130, TO_DATE('2024-05-13', 'YYYY-MM-DD'), 2, 106, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (107, 112, 219, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 1, 108, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (108, 116, 220, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 2, 109, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (109, 107, 169, TO_DATE('2024-05-16', 'YYYY-MM-DD'), 1, 110, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (110, 118, 119, TO_DATE('2024-05-19', 'YYYY-MM-DD'), 2, 106, 'Hoan thanh');
 
 
 -- SELECT * FROM LichSuaChua
