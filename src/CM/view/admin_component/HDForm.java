@@ -221,15 +221,15 @@ public class HDForm extends javax.swing.JPanel {
                 }
                 if (tenKH.toLowerCase().contains(txtSearch.getText().trim().toLowerCase())){
                     table.addRow(new Object[]{data.getMaHD(), tenKH, data.getNgay(), df.format(Long.parseLong(data.getThanhTien())), data.getMaNV()});
-                    System.out.println("a");
+//                    System.out.println("a");
                 }
                 
             } catch (SQLException ex) {
                 Logger.getLogger(HDForm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        txtSearch.setText("");
-        txtSearch.setHint("Tìm kiếm . . .");
+//        txtSearch.setText("");
+//        txtSearch.setHint("Tìm kiếm . . .");
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void cmdCTHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCTHDActionPerformed

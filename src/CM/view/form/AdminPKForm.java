@@ -187,7 +187,7 @@ public class AdminPKForm extends javax.swing.JPanel {
                 table.addRow(new Object[]{data.getMaPK(), data.getTenPK(), data.getXuatXu(), data.getSoLuong(), df.format(Long.parseLong(data.getGiaBan()))});
             }
         }
-        txtSearch.setText("");
+//        txtSearch.setText("");
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed

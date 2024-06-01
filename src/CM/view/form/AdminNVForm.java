@@ -200,8 +200,8 @@ public class AdminNVForm extends javax.swing.JPanel {
                 table.addRow(new Object[]{data.getMaNV(), data.getTenNV(), data.getChucVu(), data.getSDT(), data.getNgayVaoLam(), df.format(Long.parseLong(data.getLuong())), data.getTrangThai()});
             }
         }
-        txtSearch.setText("");
-        txtSearch.setHint("Tìm kiếm");
+//        txtSearch.setText("");
+//        txtSearch.setHint("Tìm kiếm");
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void cmdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAddActionPerformed

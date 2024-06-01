@@ -108,7 +108,7 @@ public class MenuSanPham extends javax.swing.JPanel {
                 if (event != null){
                     event.eventSearch(txtSearch.getText());
                 }
-                txtSearch.setText("");
+//                txtSearch.setText("");
             }
             
             

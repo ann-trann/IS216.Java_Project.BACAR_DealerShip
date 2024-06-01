@@ -85,7 +85,7 @@ public class AdminSPForm extends javax.swing.JPanel {
     public void searchXe(String txt){
         form.removeAll();
         for (ModelXe data : list){
-            if (data.getTenXe().contains(txt)){
+            if (data.getTenXe().toLowerCase().contains(txt.toLowerCase())){
                 form.addSP(data);
             }
         }

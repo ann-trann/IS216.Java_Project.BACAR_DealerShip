@@ -154,7 +154,7 @@ public class AdminKHForm extends javax.swing.JPanel {
                 table.addRow(new Object[]{data.getMaKH(), data.getTenKH(), data.getSoDT(), data.getLoaiKH()});
             }
         }
-        txtSearch.setText("");
+//        txtSearch.setText("");
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void lbKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbKHMouseClicked

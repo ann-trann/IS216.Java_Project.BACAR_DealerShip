@@ -198,8 +198,8 @@ public class AdminTTHDForm extends javax.swing.JPanel {
                     }
                 }
             }
-            txtSearch.setText("");
-            txtSearch.setHint("Tên khách hàng ...");
+//            txtSearch.setText("");
+//            txtSearch.setHint("Tên khách hàng ...");
         } catch (SQLException ex) {
             Logger.getLogger(AdminTTHDForm.class.getName()).log(Level.SEVERE, null, ex);
         }

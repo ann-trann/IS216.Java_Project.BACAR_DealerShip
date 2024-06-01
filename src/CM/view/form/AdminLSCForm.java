@@ -294,7 +294,7 @@ public class AdminLSCForm extends javax.swing.JPanel {
             if (tenKH.toLowerCase().contains(name))
                 table.addRow(new Object[]{data.getMaLSC(), data.getMaXe(), tenKH, sdt, data.getNgay(), data.getCa(), data.getTrangThai(), data.getMaNV()});
         }
-        txtSearch.setText("");
+//        txtSearch.setText("");
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void lbLSCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLSCMouseClicked
