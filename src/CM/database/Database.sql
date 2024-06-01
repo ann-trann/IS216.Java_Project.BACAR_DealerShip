@@ -8,6 +8,23 @@ END;
 /
 
 
+
+/*
+
+SELECT * FROM CHITIETHDSC;
+SELECT * FROM HOADONSUACHUA;
+SELECT * FROM LICHSUACHUA;
+SELECT * FROM PHIEUBAOHANH;
+SELECT * FROM HOPDONGMUAXE;
+SELECT * FROM XE;
+SELECT * FROM DONGXE;
+SELECT * FROM PHUKIEN;
+SELECT * FROM KHACHHANG;
+SELECT * FROM NHANVIEN;
+
+*/
+
+
 /*
 
 DROP TABLE CHITIETHDSC;
@@ -80,22 +97,6 @@ CREATE TABLE PhuKien (
 
 ALTER TABLE PhuKien ADD CONSTRAINT pk_pk PRIMARY KEY (MaPK);
 
-
---------------------------------------------------------------------
-
-/*
-
--- Kho Xe
-DROP TABLE NhaCungCap;
-
-CREATE TABLE NhaCungCap (
-  MaNcc NUMBER,
-  TenNcc VARCHAR2(30)
-);
-
-ALTER TABLE NhaCungCap ADD CONSTRAINT pk_ncc PRIMARY KEY (MaNcc);
-
-*/
 
 --------------------------------------------------------------------
 
@@ -232,7 +233,7 @@ ALTER TABLE ChiTietHDSC ADD CONSTRAINT FK_CTHD_PK FOREIGN KEY (MaPK) REFERENCES 
 -------------------------------------------------------------------------
 
 
--- Tao trigger cho bang HOPDONGMUAXE, tu dong tao MAPBH dua tren MAHDMX v? MAXE
+-- Tao trigger cho bang HOPDONGMUAXE, tu dong tao MAPBH dua tren MAHDMX va MAXE
 
 CREATE OR REPLACE TRIGGER trg_set_MaPBH
 BEFORE INSERT ON HOPDONGMUAXE
@@ -281,6 +282,30 @@ BEGIN
   :new.TENDONGXE := v_tendongxe;
 END;
 /
+
+
+--Tao trigger cho bang HOADONSUACHUA, khi insert CHITIETHDSC thi update THANHTIEN cua hoa don.
+
+CREATE OR REPLACE TRIGGER TG_HDSC_Thanhtien
+AFTER INSERT ON CHITIETHDSC
+FOR EACH ROW
+DECLARE
+  v_giaban NUMBER;
+  v_soluong NUMBER;
+BEGIN
+  SELECT p.GIABAN INTO v_giaban
+  FROM PHUKIEN p
+  WHERE p.MAPK = :NEW.MAPK;
+
+  V_SOLUONG := :NEW.SOLUONG;
+
+  UPDATE HOADONSUACHUA
+  SET THANHTIEN = thanhtien + v_giaban * v_soluong
+  WHERE MAHD = :NEW.MAHD;
+
+END;
+/
+
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -378,24 +403,24 @@ INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, S
 INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (108, 'BMW iX3', 'Electric', 3000000000, 3500000000, 24, 4);
 INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (109, 'BMW iNEXT', 'Electric', 7500000000, 9000000000, 24, 3);
 
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (110, 'BMW 3 Series', 'Sedan', 7500000000, 9000000000, 24, 5);
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (111, 'BMW 5 Series', 'Sedan', 7500000000, 9000000000, 24, 4);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (110, 'BMW 3 Series', 'Sedan', 4500000000, 5000000000, 24, 5);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (111, 'BMW 5 Series', 'Sedan', 3000000000, 4000000000, 24, 4);
 INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (112, 'BMW 7 Series', 'Sedan', 7500000000, 9000000000, 24, 4);
 
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (113, 'BMW 2 Series Convertible', 'Convertible', 7500000000, 9000000000, 24, 5);
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (114, 'BMW 4 Series Convertible', 'Convertible', 7500000000, 9000000000, 24, 3);
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (115, 'BMW 8 Series Convertible', 'Convertible', 7500000000, 9000000000, 24, 5);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (113, 'BMW 2 Series Convertible', 'Convertible', 5000000000, 5500000000, 24, 5);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (114, 'BMW 4 Series Convertible', 'Convertible', 4500000000, 5000000000, 24, 3);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (115, 'BMW 8 Series Convertible', 'Convertible', 6500000000, 7000000000, 24, 5);
 
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (116, 'BMW X4', 'Sport activity coupe', 7500000000, 9000000000, 24, 4);
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (117, 'BMW X6', 'Sport activity coupe', 7500000000, 9000000000, 24, 5);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (116, 'BMW X4', 'Sport activity coupe', 4000000000, 4500000000, 24, 4);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (117, 'BMW X6', 'Sport activity coupe', 5500000000, 6000000000, 24, 5);
 
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (118, 'BMW X1', 'Sport activity vehicle', 7500000000, 9000000000, 24, 3);
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (119, 'BMW X3', 'Sport activity vehicle', 7500000000, 9000000000, 24, 5);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (118, 'BMW X1', 'Sport activity vehicle', 3500000000, 4000000000, 24, 3);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (119, 'BMW X3', 'Sport activity vehicle', 6000000000, 6500000000, 24, 5);
 INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (120, 'BMW X5', 'Sport activity vehicle', 7500000000, 9000000000, 24, 4);
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (121, 'BMW X7', 'Sport activity vehicle', 7500000000, 9000000000, 24, 5);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (121, 'BMW X7', 'Sport activity vehicle', 3000000000, 4000000000, 24, 5);
 
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (122, 'BMW 2 Series Gran Coupe', 'Gran coupe', 7500000000, 9000000000, 24, 5);
-INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (123, 'BMW 4 Series Gran Coupe', 'Gran coupe', 7500000000, 9000000000, 24, 4);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (122, 'BMW 2 Series Gran Coupe', 'Gran coupe', 5500000000, 6000000000, 24, 5);
+INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (123, 'BMW 4 Series Gran Coupe', 'Gran coupe', 5000000000, 5500000000, 24, 4);
 INSERT INTO DongXe (MaDX, TenDongXe, LoaiXe, GiaNhap, GiaBan, ThoiGianBaoHanh, SoLuong) VALUES (124, 'BMW 8 Series Gran Coupe', 'Gran coupe', 7500000000, 9000000000, 24, 3);
 
 
@@ -565,28 +590,29 @@ INSERT INTO Xe (MaXe, MaDX, TrangThai, MaNV) VALUES (220, 124, 'Da ban', 112);
 
 -- Du lieu bang HOPDONGMUAXE
 
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (101, 101, 105, TO_DATE('2020-03-15', 'YYYY-MM-DD'), null, null, 103);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (102, 102, 119, TO_DATE('2021-05-22', 'YYYY-MM-DD'), null, null, 101);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (103, 103, 120, TO_DATE('2020-08-30', 'YYYY-MM-DD'), null, null, 104);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (104, 104, 123, TO_DATE('2021-11-19', 'YYYY-MM-DD'), null, null, 102);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (105, 105, 124, TO_DATE('2022-01-17', 'YYYY-MM-DD'), null, null, 101);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (106, 106, 125, TO_DATE('2023-03-14', 'YYYY-MM-DD'), null, null, 104);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (107, 107, 130, TO_DATE('2022-06-25', 'YYYY-MM-DD'), null, null, 101);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (108, 108, 140, TO_DATE('2021-09-10', 'YYYY-MM-DD'), null, null, 102);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (109, 109, 144, TO_DATE('2020-12-05', 'YYYY-MM-DD'), null, null, 104);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (110, 110, 145, TO_DATE('2023-01-29', 'YYYY-MM-DD'), null, null, 103);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (111, 111, 155, TO_DATE('2020-02-18', 'YYYY-MM-DD'), null, null, 101);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (112, 112, 160, TO_DATE('2021-04-27', 'YYYY-MM-DD'), null, null, 103);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (113, 113, 169, TO_DATE('2020-07-19', 'YYYY-MM-DD'), null, null, 101);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (114, 114, 170, TO_DATE('2022-10-07', 'YYYY-MM-DD'), null, null, 102);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (115, 115, 180, TO_DATE('2021-06-03', 'YYYY-MM-DD'), null, null, 103);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (116, 116, 189, TO_DATE('2023-09-14', 'YYYY-MM-DD'), null, null, 101);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (117, 117, 190, TO_DATE('2022-02-22', 'YYYY-MM-DD'), null, null, 102);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (118, 118, 200, TO_DATE('2020-04-11', 'YYYY-MM-DD'), null, null, 104);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (119, 119, 215, TO_DATE('2021-09-08', 'YYYY-MM-DD'), null, null, 103);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (120, 120, 219, TO_DATE('2023-03-30', 'YYYY-MM-DD'), null, null, 102);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (121, 101, 220, TO_DATE('2020-11-13', 'YYYY-MM-DD'), null, null, 104);
-INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (122, 104, 212, TO_DATE('13-11-2020', 'dd-MM-yyyy'), null, null, 104);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (101, 101, 105, TO_DATE('2024-01-05', 'YYYY-MM-DD'), null, null, 103);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (102, 102, 119, TO_DATE('2024-01-12', 'YYYY-MM-DD'), null, null, 101);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (103, 103, 120, TO_DATE('2024-01-13', 'YYYY-MM-DD'), null, null, 104);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (104, 104, 123, TO_DATE('2024-01-21', 'YYYY-MM-DD'), null, null, 102);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (105, 105, 124, TO_DATE('2024-01-24', 'YYYY-MM-DD'), null, null, 101);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (106, 106, 125, TO_DATE('2024-01-26', 'YYYY-MM-DD'), null, null, 104);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (107, 107, 130, TO_DATE('2024-02-02', 'YYYY-MM-DD'), null, null, 101);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (108, 108, 140, TO_DATE('2024-02-04', 'YYYY-MM-DD'), null, null, 102);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (109, 109, 144, TO_DATE('2024-02-07', 'YYYY-MM-DD'), null, null, 104);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (110, 110, 145, TO_DATE('2024-02-10', 'YYYY-MM-DD'), null, null, 103);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (111, 111, 155, TO_DATE('2024-02-13', 'YYYY-MM-DD'), null, null, 101);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (112, 112, 160, TO_DATE('2024-02-16', 'YYYY-MM-DD'), null, null, 103);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (113, 113, 169, TO_DATE('2024-02-17', 'YYYY-MM-DD'), null, null, 101);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (114, 114, 170, TO_DATE('2024-03-19', 'YYYY-MM-DD'), null, null, 102);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (115, 115, 180, TO_DATE('2024-03-22', 'YYYY-MM-DD'), null, null, 103);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (116, 116, 189, TO_DATE('2024-03-25', 'YYYY-MM-DD'), null, null, 101);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (117, 117, 190, TO_DATE('2024-03-28', 'YYYY-MM-DD'), null, null, 102);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (118, 118, 200, TO_DATE('2024-04-08', 'YYYY-MM-DD'), null, null, 104);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (119, 119, 215, TO_DATE('2024-04-12', 'YYYY-MM-DD'), null, null, 103);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (120, 120, 219, TO_DATE('2024-04-14', 'YYYY-MM-DD'), null, null, 102);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (121, 101, 220, TO_DATE('2024-04-16', 'YYYY-MM-DD'), null, null, 104);
+INSERT INTO HopDongMuaXe (MaHDMX, MaKH, MaXe, NgayTaoHopDong, TriGia, MaPBH, MaNV) VALUES (122, 113, 212, TO_DATE('2024-04-25', 'YYYY-MM-DD'), null, null, 104);
+
 
 
 -- Du lieu bang PhieuBaoHanh
@@ -622,12 +648,16 @@ INSERT INTO PhieuBaoHanh (MaPBH, THOIHANBAOHANH) VALUES (121, TO_DATE('2026-05-0
 
 -- Du lieu bang LichSuaChua
 
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (101, 101, null, TO_DATE('2024-05-12', 'YYYY-MM-DD'), 1, 106, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (102, 101, null, TO_DATE('2024-05-13', 'YYYY-MM-DD'), 2, 107, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (103, 109, null, TO_DATE('2024-05-14', 'YYYY-MM-DD'), 1, 108, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (104, 109, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 2, 109, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (105, 105, null, TO_DATE('2024-05-14', 'YYYY-MM-DD'), 1, 110, 'Hoan thanh');
-INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (106, 108, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 2, 106, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (101, 101, null, TO_DATE('2024-05-03', 'YYYY-MM-DD'), 1, 106, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (102, 101, null, TO_DATE('2024-05-07', 'YYYY-MM-DD'), 2, 107, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (103, 109, null, TO_DATE('2024-05-09', 'YYYY-MM-DD'), 1, 108, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (104, 103, null, TO_DATE('2024-05-10', 'YYYY-MM-DD'), 2, 109, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (105, 105, null, TO_DATE('2024-05-12', 'YYYY-MM-DD'), 1, 110, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (106, 108, null, TO_DATE('2024-05-13', 'YYYY-MM-DD'), 2, 106, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (107, 112, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 1, 108, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (108, 116, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 2, 109, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (109, 107, null, TO_DATE('2024-05-16', 'YYYY-MM-DD'), 1, 110, 'Hoan thanh');
+INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (110, 118, null, TO_DATE('2024-05-19', 'YYYY-MM-DD'), 2, 106, 'Hoan thanh');
 
 
 -- SELECT * FROM LichSuaChua
@@ -636,12 +666,16 @@ INSERT INTO LichSuaChua (MaLSC, MaKH, MaXe, Ngay, Ca, MaNV, TrangThai) VALUES (1
 
 -- Du lieu bang HoaDonSuaChua
 
-INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (101, 101, null, TO_DATE('2024-05-23', 'YYYY-MM-DD'), 120000, 106);
-INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (102, 102, null, TO_DATE('2024-05-23', 'YYYY-MM-DD'), 120000, 107);
-INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (103, 103, null, TO_DATE('2024-05-23', 'YYYY-MM-DD'), 120000, 108);
-INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (104, 104, null, TO_DATE('2024-05-23', 'YYYY-MM-DD'), 120000, 109);
-INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (105, 105, null, TO_DATE('2024-05-23', 'YYYY-MM-DD'), 120000, 110);
-INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (106, 106, null, TO_DATE('2024-05-23', 'YYYY-MM-DD'), 120000, 106);
+INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (101, 101, null, TO_DATE('2024-05-04', 'YYYY-MM-DD'), 0, 106);
+INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (102, 102, null, TO_DATE('2024-05-08', 'YYYY-MM-DD'), 0, 107);
+INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (103, 103, null, TO_DATE('2024-05-10', 'YYYY-MM-DD'), 0, 108);
+INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (104, 104, null, TO_DATE('2024-05-11', 'YYYY-MM-DD'), 0, 109);
+INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (105, 105, null, TO_DATE('2024-05-13', 'YYYY-MM-DD'), 0, 110);
+INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (106, 106, null, TO_DATE('2024-05-14', 'YYYY-MM-DD'), 0, 106);
+INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (107, 105, null, TO_DATE('2024-05-15', 'YYYY-MM-DD'), 0, 110);
+INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (108, 106, null, TO_DATE('2024-05-16', 'YYYY-MM-DD'), 0, 106);
+INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (109, 105, null, TO_DATE('2024-05-17', 'YYYY-MM-DD'), 0, 110);
+INSERT INTO HoaDonSuaChua (MaHD, MaLSC, MaPBH, NgayTraXe, ThanhTien, MaNV) VALUES (110, 106, null, TO_DATE('2024-05-20', 'YYYY-MM-DD'), 0, 106);
 
 -- SELECT * FROM HOADONSUACHUA
 
@@ -662,9 +696,12 @@ INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (105, 108, 3);
 INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (105, 110, 2);
 INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (106, 103, 3);
 INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (106, 105, 1);
-INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (106, 108, 2);
-INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (106, 113, 1);
-INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (106, 118, 1);
+INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (107, 108, 2);
+INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (107, 113, 1);
+INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (108, 118, 3);
+INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (109, 108, 2);
+INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (110, 120, 1);
+INSERT INTO ChiTietHDSC (MaHD, MaPK, SoLuong) VALUES (110, 104, 2);
 
 
 ------------------------------------------------------------------------------------------------------------------------
@@ -1474,24 +1511,6 @@ BEGIN
 END;
 /
     
-
--- Tao Procedure sua nhan vien
-
-/*
-CREATE OR REPLACE PROCEDURE NV_THEMNV (
-    
-    TenNV NHANVIEN.TENNV%TYPE,
-    SDT NHANVIEN.SDT%TYPE,
-    Luong NHANVIEN.LUONG%TYPE,
-    ChucVu NHANVIEN.CHUCVU%TYPE,
-    TaiKhoan NHANVIEN.TAIKHOAN%TYPE,
-    MatKhau NHANVIEN.MATKHAU%TYPE,
-    email NHANVIEN.EMAIL%TYPE,
-    ma_nql NHANVIEN.MA_NQL%TYPE)
-IS
-
-*/
-
 
 
 /*

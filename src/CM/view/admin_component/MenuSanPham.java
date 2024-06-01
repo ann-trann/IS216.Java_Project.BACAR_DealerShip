@@ -3,7 +3,6 @@ package CM.view.admin_component;
 
 import CM.controller.event.EventAdminMenuSelected;
 import CM.controller.event.EventSearch;
-import CM.view.card.AdminUpdateSPCard;
 import CM.model.ModelMenu;
 import CM.model.ModelNhanVien;
 import CM.view.form.MainForm;
@@ -51,7 +50,7 @@ public class MenuSanPham extends javax.swing.JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    System.out.print(user.getChucVu());
+//                    System.out.print(user.getChucVu());
                     if (user.getChucVu().equals("Quan ly")|| user.getChucVu().equals("Kho"))
                         dialog.showForm(new AdminInsertSPCard(main, dialog, user));
                     else dialog.showForm(new RejectPanel(dialog));
