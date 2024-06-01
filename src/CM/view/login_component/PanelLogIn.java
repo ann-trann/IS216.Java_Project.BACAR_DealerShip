@@ -7,12 +7,12 @@ import com.view.swing.Button;
 import com.view.swing.PasswordField;
 import com.view.swing.TextField;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import net.miginfocom.swing.MigLayout;
 
@@ -57,7 +57,19 @@ public class PanelLogIn extends javax.swing.JPanel {
         signIn.setFont(new Font("sansserif", 1, 17));
         signIn.setForeground(Color.decode("#634824"));
         signIn.addActionListener(login);
-        this.add(signIn, "w 65%");      
+        this.add(signIn, "w 65%"); 
+        
+        KeyAdapter enterKeyAdapter = new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    signIn.doClick();  // Trigger the login button click
+                }
+            }
+        };
+
+        txtUser.addKeyListener(enterKeyAdapter);
+        txtPass.addKeyListener(enterKeyAdapter);
     }
     
     public void showReport(){

@@ -2,8 +2,6 @@ package CM.view.form;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Container;
-import java.awt.Window;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
