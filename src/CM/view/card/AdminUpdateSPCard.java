@@ -249,19 +249,16 @@ public class AdminUpdateSPCard extends javax.swing.JPanel {
         if (!check()){
             lbReport.setText("Lỗi dữ liệu");
         } else{
+            try {
                 ModelXe model1 = new ModelXe(txtTenXe.getText(), (String) cbLoaiXe.getSelectedItem(), txtGiaNhap.getText(), txtGiaBan.getText(), Integer.valueOf(txtTGBH.getText()), user.getMaNV());
                 model1.setMaXe(model.getMaXe());
-            try {
                 service.updateDongXe(model1);
+                main.showForm(new AdminSPForm(main, dialog, user));
+                dialog.setVisible(false);
             } catch (SQLException ex) {
                 Logger.getLogger(AdminUpdateSPCard.class.getName()).log(Level.SEVERE, null, ex);
             }
-            }
-            dialog.setVisible(false);
-        try {
-            main.showForm(new AdminSPForm(main, dialog, user));
-        } catch (SQLException ex) {
-            Logger.getLogger(AdminUpdateSPCard.class.getName()).log(Level.SEVERE, null, ex);
+                
         }
         
         
