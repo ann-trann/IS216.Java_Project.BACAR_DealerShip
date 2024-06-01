@@ -115,7 +115,7 @@ public class AdminChooseSPForm extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Mã xe", "Tên xe", "Loại xe", "Giá"
+                "Mã dòng xe", "Tên dòng xe", "Loại xe", "Giá"
             }
         ) {
             boolean[] canEdit = new boolean [] {

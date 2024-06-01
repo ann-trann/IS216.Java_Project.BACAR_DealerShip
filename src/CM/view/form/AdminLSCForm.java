@@ -247,7 +247,7 @@ public class AdminLSCForm extends javax.swing.JPanel {
 
     private void cmdTaoHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdTaoHDActionPerformed
 
-//        try {
+        try {
             int maLSC = table.getFirstCol_RowSelected(table.getSelectedRow());
             ModelLichSuaChua data = null;
             for (ModelLichSuaChua model : list){
@@ -255,10 +255,10 @@ public class AdminLSCForm extends javax.swing.JPanel {
                     data = model;
                 }
             }
-//            if (service.compair2date(service.getCurrentDate(), data.getNgay())){
-//                dialog.showForm(new AnnoucePanelLSC(dialog));
-//            }
-//            else{
+            if (service.compair2date(service.getCurrentDate(), data.getNgay())){
+                dialog.showForm(new AnnoucePanelLSC(dialog));
+            }
+            else{
                 if (data.getTrangThai().equals("Chua hoan thanh")){
                     try {
                         main.showForm(new AdminChoosePKForm(main, dialog, user, data, null));
@@ -267,12 +267,12 @@ public class AdminLSCForm extends javax.swing.JPanel {
                     }
                 } else{
                     dialog.showForm(new ErrorPanelLSC(dialog));
-//                }
+                }
             }
             
-//        } catch (SQLException ex) {
-//            Logger.getLogger(AdminLSCForm.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminLSCForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cmdTaoHDActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
