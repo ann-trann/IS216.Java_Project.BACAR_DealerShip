@@ -271,7 +271,13 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
                     ModelXe model1 = null;
                     for (ModelXe data: service.getListXe()){
                         if (data.getTenXe().toLowerCase().equals(txtTenXe.getText().toLowerCase())){
-                            model1 = data;
+                            if (!data.getLoaiXe().toLowerCase().equals(cbLoaiXe.getSelectedItem().toString().toLowerCase())){
+                                lbReport.setText("Tên xe không đúng với loại xe trong hệ thống");
+                                return;
+                            } else{
+                                model1 = data;
+                            }
+                                
                         }
                     }
 
@@ -291,6 +297,7 @@ public class AdminInsertSPCard extends javax.swing.JPanel {
                 Logger.getLogger(AdminInsertSPCard.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+
     }//GEN-LAST:event_cmdAddActionPerformed
 
     private void txtTenXeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenXeActionPerformed
