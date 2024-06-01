@@ -95,7 +95,7 @@ public class Service {
             p.setInt(6, data.getThoiGianBH());
             p.execute();
         }
-        System.out.println(data.getMaX() + " " + data.getMaXe() +  " " + data.getMaNV());
+//        System.out.println(data.getMaX() + " " + data.getMaXe() +  " " + data.getMaNV());
         sql = "Insert into Xe(MaXe, MaDX, MaNV) VALUES (?, ?, ?)";
         p = con.prepareStatement(sql);
         p.setInt(1, data.getMaX());
@@ -323,7 +323,7 @@ public class Service {
         }
         r.close();
         p.close();
-        System.out.println(cnt);
+//        System.out.println(cnt);
         return (cnt >= 2);
     }
     
@@ -543,7 +543,7 @@ public class Service {
                 + "VALUES (?, ?, ?, ?)";
         PreparedStatement p = con.prepareStatement(sql);
         p.setInt(1, data.getMaHDMX());
-        System.out.println("\n" +data.getMaHDMX() + " " + data.getMaKH() + " " + data.getMaXE() + " " + data.getMaNV());
+//        System.out.println("\n" +data.getMaHDMX() + " " + data.getMaKH() + " " + data.getMaXE() + " " + data.getMaNV());
         p.setInt(2, data.getMaKH());
         p.setInt(3, data.getMaXE());
         p.setInt(4, data.getMaNV());
@@ -726,7 +726,7 @@ public class Service {
         c.setString(2, data.getMaPBH());
         c.execute();
         int kq = c.getInt(1);
-        System.out.println(kq);
+//        System.out.println(kq);
         return kq == 1;
             
         
