@@ -284,14 +284,13 @@ public class Service {
     // Lấy MaLSC tiếp theo
     public int getMaLSC_next() throws SQLException{
         int id_next = 0;
-        String sql = "SELECT MIN(MaLSC) + 1 FROM LICHSUACHUA "
-                + "WHERE MaLSC + 1 NOT IN (SELECT MALSC FROM LICHSUACHUA)";
+        String sql = "SELECT MAX(MaLSC)FROM LICHSUACHUA ";
         PreparedStatement p = con.prepareStatement(sql);
         ResultSet r = p.executeQuery();
         while (r.next()){
             id_next = r.getInt(1);
         }
-        return id_next;
+        return id_next + 1;
     }
     
     // Thêm lịch sửa chữa
