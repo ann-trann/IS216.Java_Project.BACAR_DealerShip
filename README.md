@@ -1,4 +1,4 @@
-# Hệ thống quản mua bán xe ô tô - BACAR_DealerShip
+# Hệ thống quản lý mua bán xe ô tô - BACAR_DealerShip
 
 ## Giới thiệu đồ án
 
