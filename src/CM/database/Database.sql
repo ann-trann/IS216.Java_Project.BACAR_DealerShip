@@ -1158,6 +1158,33 @@ BEGIN
 END;
 /
 
+/*
+
+-- Tao trigger cho bang KHACHHANG, khong duoc doi loai khach hang thanh loai VIP khi chua du so tien, nguoc lai.
+
+CREATE OR REPLACE TRIGGER TG_KH_CHECK_LOAIKH
+BEFORE UPDATE OF LOAIKH ON KHACHHANG
+FOR EACH ROW
+DECLARE 
+    TONGTIENSC NUMBER(12, 0) := 0;
+    TONGTIENMX NUMBER(12, 0) := 0;
+BEGIN
+    SELECT SUM(TRIGIA) INTO TONGTIENMX
+    FROM HOPDONGMUAXE 
+    WHERE MAKH = :NEW.MAKH;
+    
+    SELECT SUM(THANHTIEN) INTO TONGTIENSC
+    FROM HOADONSUACHUA H
+        JOIN LICHSUACHUA L ON L.MALSC = H.MALSC
+    WHERE MAKH = :NEW.MAKH;
+    
+    IF (TONGTIENMX + TONGTIENSC < 10000000000) THEN
+        RAISE_APPLICATION_ERROR(-20111, 'So tien chua du');
+    END IF;
+END;
+/
+
+*/
 
 -------------------------------------------------------------
 

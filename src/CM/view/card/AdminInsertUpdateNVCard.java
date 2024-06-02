@@ -54,18 +54,15 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
     
     private boolean check() throws SQLException{
         if (txtTenNV.getText().trim().isEmpty()) return false;
-//        if (cmdAddUpd.getText().equals("Sửa")) return true;
         if (!txtSDT.getText().matches("-?\\d+(\\.\\d+)?")) return false;
         if (txtSDT.getText().length() != 10) return false;
         if (!txtLuong.getText().matches("-?\\d+(\\.\\d+)?")) return false;
         if (Long.parseLong(txtLuong.getText()) <= 0) return false;
-        if (!txtEmail.getText().contains("@gmail.com")) return false;
+        if (!txtEmail.getText().contains("@email.com") && !txtEmail.getText().contains("@gmail.com")) return false;
+        if (txtTaiKhoan.getText().trim().isEmpty() && cbTrangThai.getSelectedItem().equals("Dang lam viec")) return false;
+        if (txtMatKhau.getText().trim().isEmpty() && cbTrangThai.getSelectedItem().equals("Dang lam viec")) return false;
         
-        if (cbTrangThai.getSelectedItem().equals("Dang lam viec")){
-            if (txtTaiKhoan.getText().equals("") || txtMatKhau.getText().equals(""))
-                return false;
-        }
-        
+        if (cmdAddUpd.getText().equals("Sửa")) return true;
         for (ModelNhanVien model : service.getListNV()){
             if (model.getTaiKhoan() == null) continue;
             if (model.getTaiKhoan().equals(txtTaiKhoan.getText())){
@@ -184,6 +181,11 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
         cbTrangThai.setBorder(null);
         cbTrangThai.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbTrangThai.setOpaque(true);
+        cbTrangThai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTrangThaiActionPerformed(evt);
+            }
+        });
 
         cbChucVu.setForeground(new java.awt.Color(153, 112, 58));
         cbChucVu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ban hang", "Kho", "Sua chua", "Quan ly" }));
@@ -351,6 +353,26 @@ public class AdminInsertUpdateNVCard extends javax.swing.JPanel {
     private void txtMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatKhauActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMatKhauActionPerformed
+
+    private void cbTrangThaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTrangThaiActionPerformed
+//        if (cbTrangThai.getSelectedItem().equals("Da nghi")){
+//            txtTenNV.setEditable(false);
+//            txtEmail.setEditable(false);
+//            cbChucVu.setEditable(false);
+//            txtSDT.setEditable(false);
+//            txtTaiKhoan.setEditable(false);
+//            txtMatKhau.setEditable(false);
+//            txtLuong.setEditable(false);
+//        } else{
+//            txtTenNV.setEditable(true);
+//            txtEmail.setEditable(true);
+//            cbChucVu.setEditable(true);
+//            txtSDT.setEditable(true);
+//            txtTaiKhoan.setEditable(true);
+//            txtMatKhau.setEditable(true);
+//            txtLuong.setEditable(true);
+//        }
+    }//GEN-LAST:event_cbTrangThaiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

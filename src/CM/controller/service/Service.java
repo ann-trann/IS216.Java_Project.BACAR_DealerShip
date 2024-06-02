@@ -841,4 +841,14 @@ public class Service {
         }
         return list;
     }
+    
+    public void updateKH(String tenKH, String sdt, int maKH) throws SQLException {
+        String sql = "UPDATE KHACHHANG SET TENKH = ?, SDT = ? WHERE MAKH = ?";
+        PreparedStatement p = con.prepareStatement(sql);
+        p.setInt(3, maKH);
+        p.setString(2, sdt);
+        p.setString(1, tenKH);
+        p.execute();
+        p.close();
+    }
 }

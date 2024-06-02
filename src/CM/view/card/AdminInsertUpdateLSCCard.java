@@ -262,52 +262,76 @@ public class AdminInsertUpdateLSCCard extends javax.swing.JPanel {
         try {
             if (!check()){
                 lbReport.setText("Lỗi dữ liệu");
-            } else try {
-                if (service.checkLSC((String)cbCa.getSelectedItem(), txtNgay.getText())){
-                    lbReport.setText("Lịch hôm đó đã đầy");
-                } else{
-                    try {
-                        
-                        int maKH = 0;
-                        String tenKH = txtTenKH.getText();
-                        String SDT = txtSDT.getText();
-                        String ngaySC = txtNgay.getText();
-                        String ca = (String) cbCa.getSelectedItem();
-                        int maXe = Integer.parseInt(txtMaXe.getText());
-                        int maLSC = 0;
-                        for (ModelKhachHang data : service.getListKH()){
-                            if (data.getSoDT().equals(SDT)){
-                                if (!data.getTenKH().equals(tenKH)){
-                                    lbReport.setText("Số điện thoại đã được sử dụng");
-                                    return;
+            } else{
+                try {
+                    int maKH = 0;
+                    String tenKH = txtTenKH.getText();
+                    String SDT = txtSDT.getText();
+                    String ngaySC = txtNgay.getText();
+                    String ca = (String) cbCa.getSelectedItem();
+                    int maXe = Integer.parseInt(txtMaXe.getText());
+                    int maLSC = 0;
+                    
+                    
+                    if (model == null){
+                        try {
+                            for (ModelKhachHang data : service.getListKH()){
+                                if (data.getSoDT().equals(SDT)){
+                                    if (!data.getTenKH().equals(tenKH)){
+                                        lbReport.setText("Số điện thoại đã được sử dụng");
+                                        return;
+                                    }
+                                    maKH = data.getMaKH();
                                 }
-                                maKH = data.getMaKH();
                             }
-                        }
-                        if (model == null){
                             if (maKH == 0){
-                                
                                 maKH = service.getMaKH_next();
                                 maLSC = service.getMaLSC_next();
                                 ModelKhachHang data = new ModelKhachHang(maKH, tenKH, SDT, "Thuong");
                                 service.insertKH(data);
                             }
-                            ModelLichSuaChua data1 = new ModelLichSuaChua(maLSC, maKH, maXe, ngaySC, Integer.valueOf(ca), user.getMaNV(), "Chua hoan thanh");
-                            service.insertLSC(data1);
-                            
-                        } else{
-                            ModelLichSuaChua data1 = new ModelLichSuaChua(model.getMaLSC(), maKH, maXe, ngaySC, Integer.valueOf(ca), user.getMaNV(), "Chua hoan thanh");
-                            service.updateLSC(data1);
+                            if (service.checkLSC((String)cbCa.getSelectedItem(), txtNgay.getText())){
+                                lbReport.setText("Lịch hôm đó đã đầy");
+                                return;
+                            } else{
+                                ModelLichSuaChua data1 = new ModelLichSuaChua(maLSC, maKH, maXe, ngaySC, Integer.valueOf(ca), user.getMaNV(), "Chua hoan thanh");
+                                service.insertLSC(data1);
+                            }
+                        } catch (SQLException ex) {
+                            Logger.getLogger(AdminInsertUpdateLSCCard.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        dialog.setVisible(false);
-                        main.showForm(new AdminLSCForm(main, dialog, user));
-                    } catch (SQLException ex) {
-                        Logger.getLogger(AdminInsertUpdateLSCCard.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    } else{
+                        try {
+                            ModelKhachHang dataKH = null;
+                            for (ModelKhachHang data : service.getListKH()){
+                                if (data.getMaKH() == model.getMaKH()){
+                                    dataKH = data;
+                                    break;
+                                }
+                            }
+                            if (!dataKH.getSoDT().equals(txtSDT.getText())){
+                                for (ModelKhachHang data : service.getListKH()){
+                                    if (data.getMaKH() == dataKH.getMaKH()) continue;
+                                    if (data.getSoDT().equals(txtSDT.getText())){
+                                        lbReport.setText("Số điện thoại đã được sử dụng");
+                                        return;
+                                    }
+                                }
+                            }
+                            ModelLichSuaChua data1 = new ModelLichSuaChua(model.getMaLSC(), model.getMaKH(), maXe, ngaySC, Integer.valueOf(ca), user.getMaNV(), "Chua hoan thanh");
 
+                            service.updateKH(tenKH, txtSDT.getText(), model.getMaKH());
+                            service.updateLSC(data1);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(AdminInsertUpdateLSCCard.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    dialog.setVisible(false);System.out.println(1);
+                    main.showForm(new AdminLSCForm(main, dialog, user));
+                    
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminInsertUpdateLSCCard.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {                
-                Logger.getLogger(AdminInsertUpdateLSCCard.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminInsertUpdateLSCCard.class.getName()).log(Level.SEVERE, null, ex);
