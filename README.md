@@ -17,10 +17,11 @@ Phát triển một hệ thống phần mềm tích hợp để quản lý toàn
 | 22520163 | Đặng Trần Chương	| Thành viên	|
 
 ### Giảng viên: Tạ Việt Phương
- 
+
+## Mô hình ERD
+![ERD](./src/com/view/demo/ERD.png "ERD")
 
 ## Các chức năng chính trong ứng dụng
-----------------
 > * Đăng nhập
 > * Đăng ký tài khoản
 > * Quản lý xe
@@ -30,6 +31,69 @@ Phát triển một hệ thống phần mềm tích hợp để quản lý toàn
 > * Quản lý lịch sửa chữa
 > * Quản lý hóa đơn sửa chữa
 > * Quản lý nhân viên
+
+## Demo sản phẩm
+>* Đăng nhập:
+
+![DangNhap](./src/com/view/demo/DangNhap.png)
+
+---------------
+
+#### Quản lý
+>* Xem thống kê
+
+![ThongKe](./src/com/view/demo/ThongKe.png)
+
+---------------
+
+#### Nhân viên bán hàng
+![NV_BanHang](./src/com/view/demo/NV_BanHang.png)
+
+>* Xem thông tin xe
+
+![ThongTinXe](./src/com/view/demo/ThongTinXe.png)
+
+>* Tạo hợp đồng
+
+![TaoHopDong](./src/com/view/demo/TaoHopDong.png)
+
+---------------
+
+#### Nhân viên sửa chữa
+>* Quản lý lịch sửa chữa
+
+![LichSuaChua](./src/com/view/demo/LichSuaChua.png)
+
+>* Chọn phụ kiện
+
+ ![ChonPK](./src/com/view/demo/ChonPK.png)
+
+>* Xác nhận thanh toán
+
+![XacNhanThanhToan](./src/com/view/demo/XacNhanThanhToan.png)
+
+>* Xem hóa đơn sửa chữa
+
+![HoaDonSC](./src/com/view/demo/HoaDonSC.png)
+
+---------------
+
+#### Nhân viên kho
+>* Quản lý xe
+
+![ThemXe](./src/com/view/demo/ThemXe.png)
+
+>* Quản lý phụ kiện
+
+![PhuKien](./src/com/view/demo/PhuKien.png)
+
+---------------
+
+**Thông tin nhân viên**
+
+![ThongTinNV](./src/com/view/demo/ThongTinNV.png)
+
+---------------
 
 ## Các ngôn ngữ, công nghệ sử dụng
 > * Ngôn ngữ sử dụng: `Java`, `PL/SQL`
@@ -45,9 +109,8 @@ Phát triển một hệ thống phần mềm tích hợp để quản lý toàn
 > * Sử dụng `ojdbc8.jar`
 
 ## Hướng dẫn cài đặt chương trình
-> * **Bước 1:** Clone project [Java_Project.BACAR_DealerShip](https://github.com/ann-trann/IS216.Java_Project.BACAR_DealerShip)
+> * **Bước 1:** Clone project [Java_Project.BACAR_DealerShip](https://github.com/ann-trann/IS216.Java_Project.BACAR_DealerShip).
 > * **Bước 2:** Vào Netbeans chọn Open project và mở project vừa clone về.
 > * **Bước 3:** Thêm tất cả các thư viện cần thiết trong mục src/CM/library/.
 > * **Bước 4:** Trong src/CM/database có file Database.sql. Tiến hành vào Oracle tạo user mới với Username là `MYDATABASE` và Password là `123`, sau đó chạy toàn bộ file Database.sql.
-> * **Bước 5:** Tiến hành chạy run file src/CM/view/main_frame
-/Frame_Login.java để chạy chương trình.
+> * **Bước 5:** Tiến hành chạy run file src/CM/view/main_frame/Frame_Login.java để chạy chương trình, đăng nhập với vai trò quản lý bằng Username là `acc001` và Password là `pass`
